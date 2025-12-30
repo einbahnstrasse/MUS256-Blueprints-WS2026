@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 367 772">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        isolation: isolate;
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+
+      .cls-3, .cls-4 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 35px;
+      }
+
+      .cls-2 {
+        font-family: Arial-BoldMT, Arial;
+        font-size: 200px;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <g>
+    <g>
+      <path class="cls-3" d="M155,499.2v84.8M220,160v84.8M90,160v84.8" pointer-events="all"/>
+      <path class="cls-3" d="M285,244.8v127.2c0,70.2-58.2,127.2-130,127.2S25,442.2,25,372v-127.2h260Z" pointer-events="all"/>
+    </g>
+    <g>
+      <path class="cls-3" d="M157.1,502.2v57.8h187.9V20h-122v126.2" pointer-events="stroke"/>
+      <path class="cls-4" d="M223.1,185.2l-26-52,26,13,26-13-26,52Z" pointer-events="all"/>
+    </g>
+    <g>
+      <path class="cls-3" d="M155,514v176.3" pointer-events="stroke"/>
+      <path class="cls-4" d="M155,729.3l-26-52,26,13,26-13-26,52Z" pointer-events="all"/>
+    </g>
+  </g>
+  <g class="cls-1">
+    <g class="cls-1">
+      <text class="cls-2" transform="translate(90 433.4)"><tspan x="0" y="0">+</tspan></text>
+    </g>
+  </g>
+</svg>

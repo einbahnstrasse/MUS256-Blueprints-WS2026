@@ -1,0 +1,182 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: Blueprints | MUS/DCS 256      
+email: lgoldford@bates.edu    
+description: >- # this means to ignore newlines until "baseurl:"
+  Winter/Spring 2026 | Mondays, Wednesdays, and Fridays from 13:10—14:30 | Bates Sound Studio (Olin 302)    
+twitter_username: einbahnstrasse  
+github_username: einbahnstrasse  
+minimal_mistakes_skin: sunrise   
+search: true
+logo: "/assets/CSS.favicon.v01c.drawio.svg"
+lunr:  
+  search_within_pages: true   
+
+baseurl: /MUS256-Blueprints-WS2026
+
+# Build settings
+markdown: kramdown
+remote_theme: mmistakes/minimal-mistakes
+# Outputting
+permalink: /:categories/:title/
+paginate: 5 # amount of posts to show
+paginate_path: /page:num/
+timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+include:
+  - _pages
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
+# Plugins (previously gems:)
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+  # - jekyll-toc  
+
+author:
+  name   : "Louis Goldford"
+  avatar : "/assets/images/Goldford.square.sm.jpg"
+  bio    : "composer"
+  links:
+    - label: "Portfolio"
+      icon: "fas fa-fw fa-link"
+      url: "https://louisgoldford.com/"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/einbahnstrasse"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/einbahnstrasse"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://instagram.com/louis.goldford"
+
+footer:
+  links:
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/einbahnstrasse"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/einbahnstrasse"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://instagram.com/louis.goldford"
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      # words_per_minute: 200
+      comments: true
+      share: true
+      related: true
+  # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  # toc_levels: 1..6
+  toc_levels: 2..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+# Schedule-specific variables   
+
+weekly-deadline-statement: Unless otherwise noted, assignments are always due online on GitHub at 11:59 PM the following Monday night each week!
+Bates-calendar: https://calendar.google.com/calendar/embed?src=bates.edu_hq580lfthp57u4bolk05oskgbs%40group.calendar.google.com&ctz=America%2FNew_York 
+
+week-01: 3 Sept. (short week)      
+week-02: 8 Sept.            
+week-03: 15 Sept.            
+week-04: 22 Sept.            
+week-05: 29 Sept.            
+week-06: 6 Oct.  
+week-07: 13 Oct.  
+week-08: 20 Oct.  
+week-09: 27 Oct.  
+week-10: 3 Nov.  
+week-11: 10 Nov.  
+week-12: 17 Nov.  
+week-13: 24 Nov.  
+week-14: 1 Dec.  
+week-15: 8 Dec.   
+# week-16: N/A  
+# week-17: N/A  
+# week-18: N/A   
+
+week-01-topic: What is Sound?   
+week-02-topic: Sound File Treatments + Early Tape Music           
+week-03-topic: Sampling + MIDI Controllers              
+week-04-topic: FX Plugins, Automation, Mixing        
+week-05-topic: Micromontage + Field Recording      
+week-06-topic: Synth Plugins, Emulators, Microtonality         
+week-07-topic: Frequency Domain Analysis/Resynthesis               
+week-08-topic: Modular Synthesis       
+week-09-topic: Multichannel Spatial Audio                
+week-10-topic: TBD             
+week-11-topic: TBD                  
+week-12-topic: TBD    
+week-13-topic: TBD       
+week-14-topic: Final Concert + Exam            
+week-15-topic: Finals Week            
+# week-16-topic: Modular Synthesis (Part 2) in VCV Rack      
+# week-17-topic: Modular Synthesis (Part 3) in VCV Rack     
+# week-18-topic: Listening Session (Final Projects)     
+
+# language plugin settings   
+
+languages: ["en", "sv", "de", "fr"]  
+default_lang: "en"  
+exclude_from_localization: ["javascript", "images", "css", "public"]  
+parallel_localization: true  

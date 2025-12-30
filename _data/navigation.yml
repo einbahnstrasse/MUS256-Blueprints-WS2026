@@ -1,0 +1,95 @@
+main:
+  - title: "Syllabus"
+    url: /
+  - title: "Schedule"
+    url: /schedule/
+  - title: "Resources"
+    url: /resources/
+  - title: "Studio"
+    url: /studio/
+  - title: "Grading"
+    url: /grading/
+
+syllabus-toc: 
+  - title: "Essential Course + Contact Information"
+    url: /#contact
+  - title: "Course Description"
+    url: /#descr
+  - title: "Course Goals"
+    url: /#goals
+  - title: "Learning Outcomes"
+    url: /#outcomes
+  - title: "Required Software + Other Resources"
+    url: /#resources
+  - title: "Expectations"
+    children: 
+    - title: "General Expectations"
+      url: /#expect
+    - title: "Special Note About Readings + Slides"
+      url: /#expect-special-note
+  - title: "Communication"
+    url: /#comm
+  - title: "General Schedule of Topics"
+    url: /#sched
+  - title: "Attendance + Participation Policy"
+    children: 
+      - title: "Virtual Participation on Zoom"
+        url: /#zoom
+      - title: "Prompt Arrival and Absences"
+        url: /#arrival
+  - title: "Academic Integrity Policy"
+    children: 
+      - title: "General Notes on Academic Integrity"
+        url: /#integrity
+      - title: "Academic Integrity Pledge"
+        url: /#integrity-pledge
+  - title: "General Grading Rubric"
+    url: /#rubric
+  - title: "Course Accommodations for Students with Disabilities"
+    url: /#disable
+  - title: "A Note on City Tech’s Counseling Center"
+    url: /#counseling
+  - title: "Inclusivity"
+    children:
+      - title: "Name + Pronoun Usage"
+        url: /#pronouns
+      - title: "Inclusivity Statement"
+        url: /#inclusivity
+
+schedule-toc:  
+  - title: "Weekly Topics"
+    children:
+      - title: "Week #1: Intro to BACH" 
+        url: /schedule/#w1
+      - title: "Week #2: Polysynthesis"
+        url: /schedule/#w2
+      - title: "Week #3: Microtonality"
+        url: /schedule/#w3
+      - title: "Week #4: Randomness"
+        url: /schedule/#w4
+      - title: "Week #5: Analysis/Resynthesis"
+        url: /schedule/#w5
+      - title: "Week #6: Generating Scales, etc."
+        url: /schedule/#w6
+      - title: "Week #7: Chaotic Attractors"
+        url: /schedule/#w7
+      - title: "Week #8: Interpolation"
+        url: /schedule/#w8
+      - title: "Week #9: Rhythm"
+        url: /schedule/#w9
+      - title: "Week #10: Intro to SPAT~"
+        url: /schedule/#w10
+      - title: "Week #11: Concert Patches"
+        url: /schedule/#w11
+      - title: "Week #12: Mirrors + Fractals"
+        url: /schedule/#w12
+      - title: "Week #13: Boulez, Viver"
+        url: /schedule/#w13
+      - title: "Week #14: Chowning Stria"
+        url: /schedule/#w14
+      - title: "Week #15: DX7 Emulation"
+        url: /schedule/#w15
+      - title: "Week #16: Physical Modeling I"
+        url: /schedule/#w16
+      - title: "Week #17: Physical Modeling II"
+        url: /schedule/#w17

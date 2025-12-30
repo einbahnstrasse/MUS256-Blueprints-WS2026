@@ -1,0 +1,445 @@
+<!-- Firebase Configuration -->
+<!-- Modern Firebase v9+ SDK for Jekyll/GitHub Pages -->
+
+<!-- Firebase App (Core) -->
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js';
+  import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js';
+  import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js';
+
+  // TODO: Replace with your Firebase project configuration
+  const firebaseConfig = {
+    // apiKey: "your-api-key-here",
+    // authDomain: "your-project-id.firebaseapp.com",
+    // projectId: "your-project-id",
+    // storageBucket: "your-project-id.appspot.com",
+    // messagingSenderId: "123456789",
+    // appId: "your-app-id"
+      apiKey: "AIzaSyDyxEvWCEvNn-oRlgu-AnMCcTaXc12INgE",
+      authDomain: "blueprints-auth.firebaseapp.com",
+      projectId: "blueprints-auth",
+      storageBucket: "blueprints-auth.firebasestorage.app",
+      messagingSenderId: "478308635708",
+      appId: "1:478308635708:web:54abeb4fce7aeac0241f39"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+
+  // Global auth functions
+  window.firebaseAuth = {
+    // Sign in with email/password
+    signInEmail: async (email, password) => {
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        await logActivity('login', 'email');
+        return userCredential.user;
+      } catch (error) {
+        console.error('Email sign-in error:', error);
+        throw error;
+      }
+    },
+
+
+    // Sign out
+    signOut: async () => {
+      try {
+        await logActivity('logout');
+        await signOut(auth);
+      } catch (error) {
+        console.error('Sign-out error:', error);
+        throw error;
+      }
+    },
+
+    // Get current user
+    getCurrentUser: () => auth.currentUser,
+
+    // Auth state listener
+    onAuthStateChanged: (callback) => onAuthStateChanged(auth, callback)
+  };
+
+  // Activity logging function
+  async function logActivity(action, method = null) {
+    const user = auth.currentUser;
+    if (!user) return;
+
+    try {
+      await addDoc(collection(db, 'user_activity'), {
+        userId: user.uid,
+        email: user.email,
+        action: action,
+        method: method,
+        timestamp: serverTimestamp(),
+        page: window.location.pathname,
+        userAgent: navigator.userAgent
+      });
+    } catch (error) {
+      console.error('Error logging activity:', error);
+    }
+  }
+
+  // Page view tracking
+  window.logPageView = async () => {
+    const user = auth.currentUser;
+    if (user) {
+      await logActivity('page_view');
+    }
+  };
+
+  // Auth state change handler
+  onAuthStateChanged(auth, (user) => {
+    updateAuthUI(user);
+    if (user) {
+      // User is signed in
+      console.log('User signed in:', user.email);
+      logPageView();
+    } else {
+      // User is signed out
+      console.log('User signed out');
+    }
+  });
+
+  // Update UI based on auth state
+  function updateAuthUI(user) {
+    const loginSection = document.getElementById('firebase-login-section');
+    const userSection = document.getElementById('firebase-user-section');
+    const userEmail = document.getElementById('firebase-user-email');
+    const protectedContent = document.querySelectorAll('.firebase-protected');
+
+    console.log('🎨 UpdateAuthUI called for:', user ? user.email : 'signed out user');
+
+    if (user) {
+      // User is signed in - CSS will hide overlay via body.firebase-authenticated class
+      document.body.classList.add('firebase-authenticated');
+      
+      if (loginSection) loginSection.style.display = 'none';
+      if (userSection) userSection.style.display = 'block';
+      if (userEmail) userEmail.textContent = user.email;
+      
+      // Show protected content
+      protectedContent.forEach(element => {
+        element.style.display = 'block';
+      });
+      
+      console.log('✅ User authenticated, overlay hidden by CSS');
+      
+    } else {
+      // User is signed out - CSS will show overlay by default
+      document.body.classList.remove('firebase-authenticated');
+      
+      if (loginSection) loginSection.style.display = 'block';
+      if (userSection) userSection.style.display = 'none';
+      
+      // Hide protected content
+      protectedContent.forEach(element => {
+        element.style.display = 'none';
+      });
+      
+      console.log('❌ User not authenticated, overlay shown by CSS');
+    }
+  }
+
+  // Initialize UI on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('🏁 Page loaded, checking auth...');
+    updateAuthUI(auth.currentUser);
+  });
+
+  // IMMEDIATE auth check - run before anything else
+  console.log('📜 Firebase config script loaded');
+  
+  // Check for existing authentication immediately
+  const checkExistingAuth = () => {
+    const currentUser = auth.currentUser;
+    if (currentUser) {
+      console.log('👤 User already authenticated:', currentUser.email);
+      document.body.classList.add('firebase-authenticated');
+      updateAuthUI(currentUser);
+    } else {
+      console.log('❌ No existing auth found');
+      // Ensure overlay is visible
+      const overlay = document.getElementById('firebase-auth-overlay');
+      if (overlay) overlay.style.display = 'flex';
+    }
+  };
+  
+  // Check immediately and also after a brief delay
+  checkExistingAuth();
+  setTimeout(checkExistingAuth, 100);
+
+  // FAIL-SAFE: If Firebase doesn't load or authenticate within 10 seconds, force login
+  setTimeout(() => {
+    if (!document.body.classList.contains('firebase-authenticated')) {
+      console.warn('⚠️ Firebase authentication timeout - forcing login overlay');
+      const overlay = document.getElementById('firebase-auth-overlay');
+      if (overlay) {
+        overlay.style.display = 'flex';
+      }
+      document.body.style.overflow = 'hidden';
+    }
+  }, 10000);
+
+</script>
+
+<!-- Firebase UI Styles - Use Jekyll theme defaults -->
+<style>
+  .firebase-auth-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 8px;
+    /* NO background color - inherit from Jekyll theme */
+  }
+
+  .firebase-auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .firebase-auth-input {
+    padding: 0.75rem;
+    border: 1px solid #000; /* subtle black border until user clicks */
+    border-radius: 4px;
+    font-size: 1rem;
+    /* Inherits background colors from Jekyll theme */
+  }
+
+  .password-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .password-input-container .firebase-auth-input {
+    padding-right: 3rem; /* Make room for the toggle button */
+    flex: 1;
+  }
+
+  .password-toggle {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1.1rem;
+    color: #666;
+    transition: color 0.2s;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .password-toggle:hover {
+    color: #333;
+  }
+
+  .password-toggle:focus {
+    outline: 2px solid #3b9cba; /* should inherit from $info-color but needs to be hardcoded until ruby issues are resolved */
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .password-toggle i,
+  .password-toggle svg {
+    display: inline-block;
+    line-height: 1;
+    width: 18px;
+    height: 18px;
+  }
+
+  .firebase-auth-button {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    /* Inherits colors from Jekyll theme */
+  }
+
+
+  .firebase-auth-button.logout {
+    /* Use theme danger color */
+  }
+
+  .firebase-protected {
+    display: none;
+  }
+
+  .firebase-user-info {
+    padding: 1rem;
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+    margin: 1rem 0;
+  }
+
+  .firebase-error {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  /* Authentication CSS moved to main.scss for guaranteed loading */
+
+  /* Privacy Modal Styles */
+  .privacy-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background set in main.scss using $background-color */
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  .privacy-modal-content {
+    background: #e8d5b7; /* should inherit from $background-color but needs to be hardcoded until ruby issues are resolved */
+    border-radius: 8px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .privacy-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem 1rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .privacy-modal-header h3 {
+    margin: 0;
+    color: #333;
+  }
+
+  .privacy-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #999;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .privacy-modal-close:hover {
+    color: #333;
+  }
+
+  .privacy-modal-body {
+    padding: 1rem 2rem;
+  }
+
+  .privacy-modal-body h4 {
+    color: #333;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .privacy-modal-body h4:first-child {
+    margin-top: 0;
+  }
+
+  .privacy-modal-body ul {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    text-align: left;
+  }
+
+  .privacy-modal-body li {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .privacy-contact {
+    background: #f9b248; /* should inherit from $footer-background-color but needs to be hardcoded until ruby issues are resolved */
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .privacy-modal-footer {
+    padding: 1rem 2rem 1.5rem;
+    text-align: center;
+    border-top: 1px solid #eee;
+  }
+
+  /* Mobile Responsiveness Improvements */
+  @media (max-width: 768px) {
+    .firebase-auth-container {
+      margin: 1rem;
+      padding: 1.5rem;
+    }
+
+    .privacy-modal {
+      padding: 0.5rem;
+    }
+
+    .privacy-modal-content {
+      max-height: 95vh;
+    }
+
+    .privacy-modal-header {
+      padding: 1rem 1.5rem 0.75rem;
+    }
+
+    .privacy-modal-body {
+      padding: 0.75rem 1.5rem;
+    }
+
+    .privacy-modal-footer {
+      padding: 0.75rem 1.5rem 1rem;
+    }
+
+    .privacy-modal-body h4 {
+      font-size: 1.1rem;
+    }
+
+    .privacy-modal-body ul {
+      padding-left: 1.2rem;
+    }
+
+    .firebase-auth-input, .firebase-auth-button {
+      font-size: 16px; /* Prevents zoom on iOS */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .privacy-modal-header {
+      flex-direction: column;
+      text-align: center;
+      gap: 0.5rem;
+    }
+
+    .privacy-modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+  }
+</style>

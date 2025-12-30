@@ -1,0 +1,617 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    background: #020617;
+    color: #f1f5f9;
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Scroll Sections - creates scroll space */
+.scroll-sections {
+    position: relative;
+}
+
+.scroll-sections .section {
+    height: 100vh;
+}
+
+/* Fixed Concert Header */
+.concert-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.banner-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.banner-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(2, 6, 23, 0.5);
+    z-index: 1;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.3);
+    transition: transform 1s ease;
+}
+
+/* Zoom in banner as you scroll - more gradual progression */
+.concert-header.step-1 .banner-image {
+    transform: scale(1.3);
+}
+
+.concert-header.step-2 .banner-image {
+    transform: scale(1.25);
+}
+
+.concert-header.step-3 .banner-image {
+    transform: scale(1.2);
+}
+
+.concert-header.step-4 .banner-image {
+    transform: scale(1.15);
+}
+
+.concert-header.step-5 .banner-image {
+    transform: scale(1.12);
+}
+
+.concert-header.step-6 .banner-image {
+    transform: scale(1.09);
+}
+
+.concert-header.step-7 .banner-image {
+    transform: scale(1.06);
+}
+
+.concert-header.step-8 .banner-image {
+    transform: scale(1.03);
+}
+
+/* Info overlays */
+.info-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(2, 6, 23, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease;
+    padding: 0 5%;
+    z-index: 2;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.info-content {
+    max-width: 700px;
+    transform: scale(2);
+    transition: transform 1s ease;
+    pointer-events: auto;
+}
+
+/* Show each overlay at different scroll steps */
+.concert-header.step-1 .overlay-1 {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.concert-header.step-1 .overlay-1 .info-content {
+    transform: scale(1);
+}
+
+.concert-header.step-2 .overlay-2 {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.concert-header.step-2 .overlay-2 .info-content {
+    transform: scale(1);
+}
+
+.concert-header.step-3 .overlay-3 {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.concert-header.step-3 .overlay-3 .info-content {
+    transform: scale(1);
+}
+
+.concert-header.step-4 .overlay-4 {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.concert-header.step-4 .overlay-4 .info-content {
+    transform: scale(1);
+}
+
+.concert-header.step-5 .overlay-5 {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.concert-header.step-5 .overlay-5 .info-content {
+    transform: scale(1);
+}
+
+.concert-header.step-6 .overlay-6 {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.concert-header.step-6 .overlay-6 .info-content {
+    transform: scale(1);
+}
+
+/* Explicitly disable pointer events for inactive overlays */
+.concert-header .info-overlay:not(.overlay-1):not(.overlay-2):not(.overlay-3):not(.overlay-4):not(.overlay-5):not(.overlay-6) {
+    pointer-events: none !important;
+}
+
+.concert-header.step-1 .overlay-2,
+.concert-header.step-1 .overlay-3,
+.concert-header.step-1 .overlay-4,
+.concert-header.step-1 .overlay-5,
+.concert-header.step-1 .overlay-6 {
+    pointer-events: none !important;
+}
+
+.concert-header.step-2 .overlay-1,
+.concert-header.step-2 .overlay-3,
+.concert-header.step-2 .overlay-4,
+.concert-header.step-2 .overlay-5,
+.concert-header.step-2 .overlay-6 {
+    pointer-events: none !important;
+}
+
+.concert-header.step-3 .overlay-1,
+.concert-header.step-3 .overlay-2,
+.concert-header.step-3 .overlay-4,
+.concert-header.step-3 .overlay-5,
+.concert-header.step-3 .overlay-6 {
+    pointer-events: none !important;
+}
+
+.concert-header.step-4 .overlay-1,
+.concert-header.step-4 .overlay-2,
+.concert-header.step-4 .overlay-3,
+.concert-header.step-4 .overlay-5,
+.concert-header.step-4 .overlay-6 {
+    pointer-events: none !important;
+}
+
+.concert-header.step-5 .overlay-1,
+.concert-header.step-5 .overlay-2,
+.concert-header.step-5 .overlay-3,
+.concert-header.step-5 .overlay-4,
+.concert-header.step-5 .overlay-6 {
+    pointer-events: none !important;
+}
+
+.concert-header.step-6 .overlay-1,
+.concert-header.step-6 .overlay-2,
+.concert-header.step-6 .overlay-3,
+.concert-header.step-6 .overlay-4,
+.concert-header.step-6 .overlay-5 {
+    pointer-events: none !important;
+}
+
+/* Typography */
+h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.75rem, 6vw, 3rem);
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 0, 0, 0.7);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1rem, 4vw, 1.125rem);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+    color: #cbd5e1;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.9);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.concert-date,
+.concert-time {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+    color: #cbd5e1;
+    font-weight: 400;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.9);
+}
+
+.venue-block {
+    color: #94a3b8;
+    font-size: clamp(0.875rem, 3.5vw, 1rem);
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.9);
+}
+
+.venue-block p {
+    margin: 4px 0;
+}
+
+.apropos-block {
+    color: #cbd5e1;
+    font-size: 1.125rem;
+    line-height: 1.4;
+    max-width: 650px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.9);
+}
+
+.apropos-block p {
+    font-family: 'EB Garamond', Georgia, serif;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.video-container {
+    margin: 32px auto;
+    max-width: 500px;
+    /* width: 100%; */
+    width: 80%;
+    /* border-radius: 8px; */
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    /* background: rgba(30, 41, 59, 0.5); */
+    border: 1px solid rgba(100, 116, 139, 0.3);
+    /* min-height: 280px; */
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: transparent;
+}
+
+.video-caption {
+    font-family: 'Syne', sans-serif !important;
+    font-size: 0.875rem !important;
+    font-weight: 400 !important;
+    color: #94a3b8 !important;
+    text-align: center;
+    margin-top: 12px !important;
+    font-style: italic;
+}
+
+.apropos-block a {
+    color: #60a5fa;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.apropos-block a:hover {
+    color: #93c5fd;
+}
+
+.scroll-instruction {
+    color: #94a3b8;
+    font-size: clamp(0.875rem, 3.5vw, 1rem);
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.9);
+}
+
+/* Program Section - appears after scroll sequence */
+main {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    padding-top: 32px;
+}
+
+.program-header {
+    border-top: 1px solid rgba(30, 41, 59, 0.3);
+    padding-top: 32px;
+    margin-bottom: 32px;
+    text-align: center;
+    padding: 32px 24px 16px;
+}
+
+.program-header h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #94a3b8;
+}
+
+/* Pieces */
+.pieces {
+    padding-bottom: 64px;
+}
+
+.piece {
+    border-bottom: 1px solid rgba(30, 41, 59, 0.3);
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    padding: 24px;
+}
+
+.piece-header {
+    padding: 8px;
+    margin: -8px;
+}
+
+.piece-number {
+    font-size: 1rem;
+    color: #64748b;
+    margin-bottom: 8px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.piece-number::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #64748b;
+}
+
+.piece-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 8px;
+}
+
+.piece-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1.3;
+    flex: 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.piece-duration {
+    color: #94a3b8;
+    font-size: 1rem;
+    font-weight: 700;
+    padding-top: 4px;
+    white-space: nowrap;
+}
+
+.piece-composer {
+    font-family: 'Syne', sans-serif;
+    color: #94a3b8;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.program-note {
+    margin-top: 16px;
+    padding-left: 8px;
+}
+
+.program-note p {
+    font-family: 'EB Garamond', Georgia, serif;
+    color: #cbd5e1;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 32px 24px;
+    color: #64748b;
+    font-size: 0.75rem;
+    border-top: 1px solid rgba(15, 23, 42, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+@media (min-width: 768px) {
+    .piece-title {
+        font-size: 1.75rem;
+    }
+}
+
+/* Scroll Indicator */
+.scroll-indicator-wrapper {
+    position: fixed;
+    bottom: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 100;
+    pointer-events: none;
+    transition: all 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+/* Move to right margin when scrolled past intro - stays at bottom */
+.scroll-indicator-wrapper.right-position {
+    left: auto;
+    right: 2vw;
+    bottom: 5vh;
+    transform: translateX(0);
+}
+
+.scroll-text {
+    font-family: 'Syne', sans-serif;
+    color: #cbd5e1;
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: lowercase;
+    font-style: italic;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.9);
+    transition: transform 0.5s ease, margin 0.5s ease;
+    margin: 0 0 8px 0;
+}
+
+.scroll-indicator-wrapper.right-position .scroll-text {
+    transform: rotate(-90deg);
+    transform-origin: center center;
+    margin: 0 0 8px 0;
+    align-self: center;
+}
+
+.scroll-line {
+    width: 2px;
+    height: 0;
+    background: #cbd5e1;
+    margin: 0 auto;
+    animation: scrollLineAnimation 1.5s ease-in-out infinite;
+    box-shadow: 0 0 8px rgba(203, 213, 225, 0.5);
+}
+
+@keyframes scrollLineAnimation {
+    0% {
+        height: 0;
+        opacity: 1;
+    }
+    50% {
+        height: 60px;
+        opacity: 1;
+    }
+    100% {
+        height: 60px;
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+/* Hide scroll indicator when at bottom of page */
+.scroll-indicator-wrapper.hidden {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.overlay-6 {
+    transform: translateY(-40px);
+}
+
+/* Marquee warning bars */
+.marquee {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    background: rgba(2, 6, 23, 0.95);
+    z-index: 120; /* above header/main/footer and scroll indicator */
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    border-color: rgba(148, 163, 184, 0.4);
+}
+
+.marquee-top {
+    top: 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.marquee-bottom {
+    bottom: 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.marquee-inner {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: marquee-scroll 24s linear infinite;
+}
+
+.marquee-text {
+    /* font-family: 'Syne', sans-serif; */
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    /* color: #fca5a5; soft red to match your warning tone */
+    color: aqua;
+    padding: 0.3rem 2.5rem;
+}
+
+/* Active state – turned on by JS when program section is in view */
+.marquee--active {
+    opacity: 1;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}

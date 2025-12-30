@@ -1,0 +1,654 @@
+<!-- Firebase Authentication Status Banner -->
+<div id="firebase-auth-banner" class="firebase-auth-banner" style="display: none;">
+  <div class="auth-banner-content">
+    <div class="auth-banner-left">
+      <!-- Empty left side -->
+    </div>
+    <div class="auth-banner-right">
+      <span class="auth-status">Signed in as: <strong id="banner-user-email"></strong></span>
+      <span class="auth-timer" id="session-timer">Session: 0m</span>
+      <button id="banner-logout" class="btn btn--primary">SIGN OUT</button>
+    </div>
+  </div>
+</div>
+
+<!-- Authentication overlay for unauthenticated users -->
+<div id="firebase-auth-overlay" class="firebase-auth-overlay">
+  <div class="auth-overlay-content">
+    <h2>Authentication Required</h2>
+    <p>to access our Course Website for<br><em>Composing Sonic Systems</em>.</p>
+    {% include firebase-auth-ui.html %}
+  </div>
+</div>
+
+<!-- Auto-logout warning modal -->
+<div id="logout-warning-modal" class="logout-warning-modal" style="display: none;">
+  <div class="logout-warning-content">
+    <div class="logout-warning-header">
+      <h3>⚠️ Inactivity Warning</h3>
+    </div>
+    <div class="logout-warning-body">
+      <p>You've been inactive for a while.</p>
+      <p><strong>You'll be automatically signed out in <span id="logout-countdown">2:00</span></strong></p>
+      <p>Click "Stay Logged In" to continue your session.</p>
+    </div>
+    <div class="logout-warning-footer">
+      <button id="stay-logged-in" class="btn btn--success">Stay Logged In</button>
+      <button id="logout-now" class="btn btn--danger">Sign Out Now</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .firebase-auth-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #2c5530; /* darker green for better readability */
+    /* background: #3fa63f; */ /* theme $success-color - too light for readability */
+    color: white;
+    padding: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+    font-size: 0.8rem;
+  }
+
+  .auth-banner-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .auth-banner-left {
+    /* Empty - all content moved to right side */
+  }
+
+  .auth-banner-right {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  /* Force banner layout on ALL pages - same approach as masthead and TOC fixes */
+  body.firebase-authenticated .auth-banner-right,
+  body.firebase-authenticated .page .auth-banner-right,
+  body.firebase-authenticated .page__inner-wrap .auth-banner-right,
+  body.firebase-authenticated main .auth-banner-right {
+    display: flex !important;
+    gap: 1.5rem !important;
+    align-items: center !important;
+  }
+
+  /* Ensure banner content layout is consistent across all pages */
+  body.firebase-authenticated .auth-banner-content,
+  body.firebase-authenticated .page .auth-banner-content,
+  body.firebase-authenticated .page__inner-wrap .auth-banner-content,
+  body.firebase-authenticated main .auth-banner-content {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+  }
+
+  .auth-status {
+    color: #e8f5e8;
+  }
+
+  .auth-timer {
+    color: #b8e6b8;
+    font-family: monospace;
+  }
+
+  .firebase-auth-banner #banner-logout.btn.btn--primary {
+    font-size: smaller !important; /* match resources page styling */
+    text-transform: uppercase !important; /* match resources page styling */
+    font-weight: bold !important; /* match resources page styling */
+  }
+
+  .firebase-auth-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #e8d5b7; /* should inherit from $background-color but needs to be hardcoded until ruby issues are resolved */
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .auth-overlay-content {
+    background: #e8d5b7; /* should inherit from $background-color but needs to be hardcoded until ruby issues are resolved */
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+  }
+
+  .auth-overlay-content h2 {
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  /* Add top padding to body when banner is visible */
+  body.firebase-authenticated {
+    padding-top: 2.8rem;
+  }
+
+  /* Make site navigation sticky below auth banner - force on ALL pages */
+  body.firebase-authenticated .masthead {
+    position: sticky !important;
+    position: -webkit-sticky !important; /* Safari support */
+    top: 2.5rem !important; /* Position below our auth banner */
+    z-index: 999 !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    background: #e8d5b7 !important; /* should inherit from $background-color but needs to be hardcoded until ruby issues are resolved */
+    background-color: #e8d5b7 !important; /* force with both properties */
+    padding: 0.75rem 0 !important; /* Add vertical padding to ensure full coverage */
+    margin: 0 !important; /* Remove any margin that might cause gaps */
+    width: 100% !important;
+    display: block !important;
+  }
+
+  /* Ensure masthead inner content has proper background - force on ALL pages */
+  body.firebase-authenticated .masthead .masthead__inner-wrap {
+    background: #e8d5b7 !important; /* should inherit from $background-color but needs to be hardcoded until ruby issues are resolved */
+    background-color: #e8d5b7 !important; /* force with both properties */
+    padding: 0.5rem 0 !important; /* Additional padding for inner content */
+    width: 100% !important;
+  }
+
+  /* Force masthead to override any conflicting styles on problematic pages */
+  body.firebase-authenticated .page .masthead,
+  body.firebase-authenticated .page__inner-wrap .masthead,
+  body.firebase-authenticated main .masthead {
+    position: sticky !important;
+    top: 2.5rem !important;
+    background: #e8d5b7 !important;
+  }
+
+  /* Fix sticky TOC positioning to stay below masthead navigation - force on ALL pages */
+  body.firebase-authenticated .sidebar__right.sticky,
+  body.firebase-authenticated .page .sidebar__right.sticky,
+  body.firebase-authenticated .page__inner-wrap .sidebar__right.sticky,
+  body.firebase-authenticated main .sidebar__right.sticky {
+    position: sticky !important; /* Keep sticky behavior */
+    position: -webkit-sticky !important; /* Safari support */
+    top: 8rem !important; /* Increase spacing for better clearance on all pages */
+  }
+
+  /* Ensure TOC has proper spacing and doesn't overlap */
+  body.firebase-authenticated .toc {
+    margin-top: 0 !important;
+  }
+
+  /* Auto-logout warning modal styles */
+  .logout-warning-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background set in main.scss using $background-color */
+    z-index: 3500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  .logout-warning-content {
+    background: #e8d5b7; /* should inherit from $background-color but needs to be hardcoded until ruby issues are resolved */
+    border-radius: 8px;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 3px solid #ff6b35;
+  }
+
+  .logout-warning-header {
+    background: #ff6b35;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .logout-warning-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+  }
+
+  .logout-warning-body {
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .logout-warning-body p {
+    margin: 0.75rem 0;
+    font-size: 1.05rem;
+  }
+
+  #logout-countdown {
+    color: #dc3545;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 1.2rem;
+  }
+
+  .logout-warning-footer {
+    padding: 1rem 1.5rem 1.5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .stay-logged-in-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .stay-logged-in-btn:hover {
+    background: #218838;
+  }
+
+  .logout-now-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .logout-now-btn:hover {
+    background: #c82333;
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .auth-banner-content {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+
+    /* Force mobile banner layout on ALL pages */
+    body.firebase-authenticated .auth-banner-content,
+    body.firebase-authenticated .page .auth-banner-content,
+    body.firebase-authenticated .page__inner-wrap .auth-banner-content,
+    body.firebase-authenticated main .auth-banner-content {
+      flex-direction: column !important;
+      gap: 0.5rem !important;
+      text-align: center !important;
+    }
+
+    body.firebase-authenticated .auth-banner-right,
+    body.firebase-authenticated .page .auth-banner-right,
+    body.firebase-authenticated .page__inner-wrap .auth-banner-right,
+    body.firebase-authenticated main .auth-banner-right {
+      flex-direction: column !important;
+      gap: 0.5rem !important;
+    }
+
+    body.firebase-authenticated {
+      padding-top: 4rem;
+    }
+
+    /* Adjust sticky navigation for mobile - force on ALL pages */
+    body.firebase-authenticated .masthead {
+      top: 3.8rem !important; /* Position below taller mobile auth banner */
+      padding: 1rem 0 !important; /* Increase padding on mobile for better coverage */
+    }
+
+    /* Force mobile masthead overrides for problematic pages */
+    body.firebase-authenticated .page .masthead,
+    body.firebase-authenticated .page__inner-wrap .masthead,
+    body.firebase-authenticated main .masthead {
+      top: 3.8rem !important;
+      padding: 1rem 0 !important;
+    }
+
+    /* Adjust mobile TOC positioning - force on ALL pages */
+    body.firebase-authenticated .sidebar__right.sticky,
+    body.firebase-authenticated .page .sidebar__right.sticky,
+    body.firebase-authenticated .page__inner-wrap .sidebar__right.sticky,
+    body.firebase-authenticated main .sidebar__right.sticky {
+      top: 9rem !important; /* Increase mobile spacing for better clearance */
+    }
+
+    .logout-warning-footer {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .stay-logged-in-btn, .logout-now-btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  let sessionStartTime = null;
+  let timerInterval = null;
+  
+  // Auto-logout configuration
+  let inactivityTimer = null;
+  let warningTimer = null;
+  let countdownInterval = null;
+  const INACTIVITY_TIMEOUT = 18 * 60 * 1000; // 18 minutes (2 minutes before 20 min total)
+  const WARNING_DURATION = 2 * 60 * 1000; // 2 minutes warning
+
+  // Wait for Firebase to be ready
+  const waitForFirebase = setInterval(() => {
+    if (window.firebaseAuth) {
+      clearInterval(waitForFirebase);
+      initAuthBanner();
+    }
+  }, 100);
+
+  function initAuthBanner() {
+    const authBanner = document.getElementById('firebase-auth-banner');
+    const authOverlay = document.getElementById('firebase-auth-overlay');
+    const bannerEmail = document.getElementById('banner-user-email');
+    const sessionTimer = document.getElementById('session-timer');
+    const bannerLogout = document.getElementById('banner-logout');
+
+    // Auth state listener
+    window.firebaseAuth.onAuthStateChanged((user) => {
+      console.log('Auth state changed:', user ? user.email : 'signed out'); // Debug log
+      
+      if (user) {
+        // User is signed in
+        showAuthenticatedState(user);
+        hideAuthOverlay();
+        
+        // Check for existing session
+        const existingSession = sessionStorage.getItem('firebase-session-start');
+        console.log('🔄 Auth state changed - existing session:', existingSession);
+        
+        // Always start timer (it will continue existing session if found)
+        startSessionTimer(); // Start/continue session timer
+        
+        // Initialize inactivity timer
+        resetInactivityTimer();
+      } else {
+        // User is signed out
+        showUnauthenticatedState();
+        stopSessionTimer();
+      }
+    });
+
+    function showAuthenticatedState(user) {
+      if (bannerEmail) bannerEmail.textContent = user.email;
+      if (authBanner) authBanner.style.display = 'block';
+      document.body.classList.add('firebase-authenticated');
+    }
+
+    function showUnauthenticatedState() {
+      if (authBanner) authBanner.style.display = 'none';
+      if (authOverlay) authOverlay.style.display = 'flex';
+      document.body.classList.remove('firebase-authenticated');
+    }
+
+    function hideAuthOverlay() {
+      if (authOverlay) authOverlay.style.display = 'none';
+    }
+
+    function startSessionTimer() {
+      console.log('🕐 Starting session timer'); // Debug log
+      
+      // Try multiple storage methods for persistence across Jekyll navigation
+      const storageKeys = ['firebase-session-start'];
+      let storedStartTime = null;
+      
+      // Check localStorage, sessionStorage, and window property
+      storedStartTime = localStorage.getItem('firebase-session-start') || 
+                       sessionStorage.getItem('firebase-session-start') ||
+                       (window.globalSessionStart ? window.globalSessionStart.toISOString() : null);
+      
+      console.log('🔍 Stored session time from multiple sources:', storedStartTime); // Debug
+      
+      if (storedStartTime) {
+        // Continue existing session
+        sessionStartTime = new Date(storedStartTime);
+        console.log('▶️ Continuing existing session from:', sessionStartTime);
+      } else {
+        // Start new session
+        sessionStartTime = new Date();
+        console.log('🆕 Starting new session:', sessionStartTime);
+      }
+      
+      // Store in multiple places for Jekyll navigation persistence
+      const timeString = sessionStartTime.toISOString();
+      localStorage.setItem('firebase-session-start', timeString);
+      sessionStorage.setItem('firebase-session-start', timeString);
+      window.globalSessionStart = sessionStartTime;
+      
+      // Update immediately
+      updateTimerDisplay();
+      
+      // Clear any existing interval
+      if (timerInterval) {
+        clearInterval(timerInterval);
+      }
+      
+      timerInterval = setInterval(() => {
+        updateTimerDisplay();
+        // Continuously save to all storage methods
+        const currentTimeString = sessionStartTime.toISOString();
+        localStorage.setItem('firebase-session-start', currentTimeString);
+        sessionStorage.setItem('firebase-session-start', currentTimeString);
+        window.globalSessionStart = sessionStartTime;
+      }, 5000); // Update every 5 seconds
+    }
+    
+    function updateTimerDisplay() {
+      if (!sessionStartTime) return;
+      
+      const now = new Date();
+      const elapsed = now - sessionStartTime;
+      const totalSeconds = Math.floor(elapsed / 1000);
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+      const hours = Math.floor(minutes / 60);
+      const remainingMinutes = minutes % 60;
+      
+      let timeText;
+      if (hours > 0) {
+        timeText = `Session: ${hours}h ${remainingMinutes}m`;
+      } else if (minutes > 0) {
+        timeText = `Session: ${minutes}m ${seconds}s`;
+      } else {
+        timeText = `Session: ${seconds}s`;
+      }
+      
+      if (sessionTimer) {
+        sessionTimer.textContent = timeText;
+      }
+    }
+
+    function stopSessionTimer() {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+      // Clear session data from ALL storage locations
+      localStorage.removeItem('firebase-session-start');
+      sessionStorage.removeItem('firebase-session-start');
+      localStorage.removeItem('firebase-last-activity');
+      sessionStorage.removeItem('firebase-last-activity');
+      delete window.globalSessionStart;
+      sessionStartTime = null;
+      if (sessionTimer) {
+        sessionTimer.textContent = 'Session: 0m';
+      }
+      console.log('🧹 Cleared all session timer data on sign out');
+    }
+
+    // Banner logout button
+    if (bannerLogout) {
+      bannerLogout.addEventListener('click', async function() {
+        try {
+          this.textContent = 'Signing out...';
+          this.disabled = true;
+          await window.firebaseAuth.signOut();
+        } catch (error) {
+          console.error('Logout error:', error);
+          this.textContent = 'Sign Out';
+          this.disabled = false;
+        }
+      });
+    }
+    
+    // Auto-logout functionality
+    function resetInactivityTimer() {
+      // Update last activity time
+      sessionStorage.setItem('firebase-last-activity', new Date().toISOString());
+      
+      // Clear existing timers
+      clearTimeout(inactivityTimer);
+      clearTimeout(warningTimer);
+      hideLogoutWarning();
+      
+      // Only set timer if user is authenticated
+      if (window.firebaseAuth && window.firebaseAuth.getCurrentUser()) {
+        // Set warning timer (18 minutes)
+        inactivityTimer = setTimeout(() => {
+          showLogoutWarning();
+        }, INACTIVITY_TIMEOUT);
+      }
+    }
+    
+    function showLogoutWarning() {
+      const warningModal = document.getElementById('logout-warning-modal');
+      if (warningModal) {
+        warningModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        // Start countdown
+        let remainingSeconds = WARNING_DURATION / 1000;
+        updateCountdown(remainingSeconds);
+        
+        countdownInterval = setInterval(() => {
+          remainingSeconds--;
+          updateCountdown(remainingSeconds);
+          
+          if (remainingSeconds <= 0) {
+            clearInterval(countdownInterval);
+            performAutoLogout();
+          }
+        }, 1000);
+        
+        // Set final logout timer
+        warningTimer = setTimeout(() => {
+          performAutoLogout();
+        }, WARNING_DURATION);
+      }
+    }
+    
+    function hideLogoutWarning() {
+      const warningModal = document.getElementById('logout-warning-modal');
+      if (warningModal) {
+        warningModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+      
+      if (countdownInterval) {
+        clearInterval(countdownInterval);
+        countdownInterval = null;
+      }
+      
+      if (warningTimer) {
+        clearTimeout(warningTimer);
+        warningTimer = null;
+      }
+    }
+    
+    function updateCountdown(seconds) {
+      const countdownElement = document.getElementById('logout-countdown');
+      if (countdownElement) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        countdownElement.textContent = `${minutes}:${secs.toString().padStart(2, '0')}`;
+      }
+    }
+    
+    async function performAutoLogout() {
+      hideLogoutWarning();
+      try {
+        await window.firebaseAuth.signOut();
+        alert('You have been signed out due to inactivity.');
+      } catch (error) {
+        console.error('Auto-logout error:', error);
+      }
+    }
+    
+    // Activity event listeners
+    const activityEvents = ['click', 'scroll', 'keypress', 'mousemove'];
+    activityEvents.forEach(event => {
+      document.addEventListener(event, resetInactivityTimer, true);
+    });
+    
+    // Add touchstart with passive option for better mobile performance
+    document.addEventListener('touchstart', resetInactivityTimer, { passive: true });
+    
+    // Page navigation counts as activity
+    window.addEventListener('beforeunload', () => {
+      sessionStorage.setItem('firebase-last-activity', new Date().toISOString());
+      // Ensure session timer state is saved before page unloads
+      if (sessionStartTime) {
+        sessionStorage.setItem('firebase-session-start', sessionStartTime.toISOString());
+      }
+    });
+    
+    // Warning modal event listeners
+    const stayLoggedInBtn = document.getElementById('stay-logged-in');
+    const logoutNowBtn = document.getElementById('logout-now');
+    
+    if (stayLoggedInBtn) {
+      stayLoggedInBtn.addEventListener('click', () => {
+        hideLogoutWarning();
+        resetInactivityTimer();
+      });
+    }
+    
+    if (logoutNowBtn) {
+      logoutNowBtn.addEventListener('click', () => {
+        performAutoLogout();
+      });
+    }
+    
+    // Click outside modal to stay logged in
+    const logoutWarningModal = document.getElementById('logout-warning-modal');
+    if (logoutWarningModal) {
+      logoutWarningModal.addEventListener('click', (e) => {
+        if (e.target === logoutWarningModal) {
+          hideLogoutWarning();
+          resetInactivityTimer();
+        }
+      });
+    }
+
+    // Initialize inactivity timer when user is authenticated
+    if (window.firebaseAuth && window.firebaseAuth.getCurrentUser()) {
+      resetInactivityTimer();
+    }
+  }
+});
+</script>

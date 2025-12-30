@@ -1,0 +1,127 @@
+---
+---
+
+@import "minimal-mistakes";
+
+/* CRITICAL SECURITY: Firebase Authentication CSS - MUST BE FIRST */
+/* This CSS MUST load on every page to prevent unauthorized access */
+
+/* AGGRESSIVE: Hide ALL content by default until authentication is verified */
+.initial-content,
+.masthead,
+.page__footer,
+main,
+article,
+.page__content,
+.page,
+.layout--default,
+.layout--single,
+.layout--archive,
+.layout--splash,
+.layout--home,
+header,
+nav,
+section,
+.site-nav,
+.greedy-nav,
+.visible-links,
+.hidden-links {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  display: none !important;
+}
+
+body {
+  overflow: hidden !important;
+}
+
+/* Always show authentication overlay until JavaScript confirms auth */
+#firebase-auth-overlay {
+  display: flex !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 9999 !important;
+  background: #e8d5b7 !important; /* should inherit from $background-color but needs to be hardcoded until ruby issues are resolved */
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Only show content after successful authentication */
+body.firebase-authenticated {
+  overflow: auto !important;
+  
+  .initial-content,
+  .masthead,
+  .page__footer,
+  main,
+  article,
+  .page__content,
+  .page,
+  .layout--default,
+  .layout--single,
+  .layout--archive,
+  .layout--splash,
+  .layout--home,
+  header,
+  nav,
+  section,
+  .site-nav,
+  .greedy-nav,
+  .visible-links,
+  .hidden-links {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+  
+  /* Hide overlay only after authentication confirmed */
+  #firebase-auth-overlay {
+    display: none !important;
+  }
+}
+
+/* Firebase Auth Background Colors - Use Theme Variables */
+.auth-overlay-content,
+.logout-warning-content,
+.privacy-modal-content {
+  background: #e8d5b7 !important; /* should inherit from $background-color but needs to be hardcoded until ruby issues are resolved */
+}
+
+/* Modal parent containers - use theme background */
+.logout-warning-modal,
+.privacy-modal,
+.firebase-auth-overlay {
+  background: #e8d5b7 !important; /* should inherit from $background-color but needs to be hardcoded until ruby issues are resolved */
+}
+
+/* Override global ::selection rule for Firebase auth elements */
+.auth-overlay-content::selection,
+.logout-warning-content::selection,
+.privacy-modal-content::selection,
+.auth-overlay-content *::selection,
+.logout-warning-content *::selection,
+.privacy-modal-content *::selection {
+  background: #fc3a52 !important; /* should inherit from $primary-color but needs to be hardcoded until ruby issues are resolved */
+  color: #e8d5b7 !important; /* should inherit from $background-color but needs to be hardcoded until ruby issues are resolved */
+}
+
+/* End Firebase Security CSS */
+
+/* Site logo styling in masthead */
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.site-logo img {
+  max-height: 32px;
+  width: auto;
+  vertical-align: middle;
+}
+
+/* Typography ========================================================================== */
+@font-face { font-family: 'Florencesans-Exp-Bold'; src: url("MHL-Advanced-CAO/assets/fonts/Florencesans-Exp-Bold.ttf.woff") format("woff"), url("MHL-Advanced-CAO/assets/fonts/Florencesans-Exp-Bold.ttf.svg#Florencesans-Exp-Bold") format("svg"), url("MHL-Advanced-CAO/assets/fonts/Florencesans-Exp-Bold.ttf.eot"), url("MHL-Advanced-CAO/assets/fonts/Florencesans-Exp-Bold.ttf.eot?#iefix") format("embedded-opentype"); font-weight: normal; font-style: normal; }

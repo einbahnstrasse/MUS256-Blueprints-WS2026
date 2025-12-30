@@ -1,0 +1,270 @@
+<!-- Firebase Authentication UI -->
+
+<div class="firebase-auth-container archive__item">
+  
+  <!-- Login Section (shown when user is not signed in) -->
+  <div id="firebase-login-section">
+    <h3>Student Login</h3>
+    <p>Sign in to access course content and track your engagement.</p>
+    
+    <!-- Email/Password Login Form -->
+    <div class="firebase-auth-form">
+      <input type="email" id="firebase-email" class="firebase-auth-input" placeholder="Email" required>
+      <div class="password-input-container">
+        <input type="password" id="firebase-password" class="firebase-auth-input" placeholder="Password" required>
+        <button type="button" class="password-toggle" id="password-toggle" aria-label="Show password">
+          <i class="fas fa-eye-slash" id="toggle-icon"></i>
+        </button>
+      </div>
+      <button id="firebase-email-login" class="btn btn--info">Sign In</button>
+      <div id="firebase-error" class="firebase-error"></div>
+    </div>
+    
+    <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
+      <strong>Students:</strong> Use the email + password provided by your instructor.<br><br>If you've forgotten your personal credentials, contact your instructor.
+    </p>
+    
+    <p style="font-size: 0.85rem; margin-top: 0.5rem; text-align: center;">
+      <button id="privacy-info-link" class="btn btn--info" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">
+        How is my data used?
+      </button>
+    </p>
+  </div>
+  
+  <!-- User Section (shown when user is signed in) -->
+  <div id="firebase-user-section" style="display: none;">
+    <div class="firebase-user-info">
+      <h3>Welcome!</h3>
+      <p>Signed in as: <strong id="firebase-user-email"></strong></p>
+      <p><small>Your activity is being tracked for course participation.</small></p>
+    </div>
+    
+    <button id="firebase-logout" class="firebase-auth-button logout">Sign Out</button>
+  </div>
+  
+</div>
+
+<!-- Privacy Information Modal -->
+<div id="privacy-modal" class="privacy-modal" style="display: none;">
+  <div class="privacy-modal-content">
+    <div class="privacy-modal-header">
+      <h3>Student Data Privacy + Usage</h3>
+      <button id="privacy-modal-close" class="privacy-modal-close">&times;</button>
+    </div>
+    <div class="privacy-modal-body">
+      <h4>What Data is Collected?</h4>
+      <ul>
+        <li><strong>Login/Logout Times:</strong> When you sign in and out</li>
+        <li><strong>Page Visits:</strong> Which course pages you view</li>
+        <li><strong>Session Duration:</strong> How long you spend on the site</li>
+        <li><strong>Basic Device Info:</strong> Browser type (for technical support)</li>
+      </ul>
+      
+      <h4>How is This Data Used?</h4>
+      <ul>
+        <li><strong>Course Participation:</strong> Track engagement for attendance/participation grades</li>
+        <li><strong>Course Improvement:</strong> Understand which materials students access most</li>
+        <li><strong>Student Support:</strong> Identify students who may need additional help</li>
+      </ul>
+      
+      <h4>Data Privacy + Security</h4>
+      <ul>
+        <li><strong>Instructor Only:</strong> Only your instructor can view this data</li>
+        <li><strong>Course Purpose:</strong> Data is used solely for course-related assessment</li>
+        <li><strong>Secure Storage:</strong> Data is stored securely in Firebase (Google's cloud platform)</li>
+        <li><strong>No Third Parties:</strong> Your data is never shared with other organizations</li>
+        <li><strong>Educational Use:</strong> Compliant with FERPA educational privacy standards</li>
+      </ul>
+      
+      <h4>Your Rights</h4>
+      <p>You have the right to:</p>
+      <ul>
+        <li>Know what data is collected about you</li>
+        <li>Request a copy of your activity data</li>
+        <li>Ask questions about how your data is used</li>
+        <li>Contact your instructor with any privacy concerns</li>
+      </ul>
+      
+      <div class="privacy-contact">
+        <strong>Questions?</strong> Contact Prof. Louis Goldford at 
+        <a href="mailto:lgoldford@bates.edu">lgoldford@bates.edu</a>
+      </div>
+    </div>
+    <div class="privacy-modal-footer">
+      <button id="privacy-modal-ok" class="btn btn--info">I Understand</button>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript for Auth UI -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // Get UI elements
+  const emailInput = document.getElementById('firebase-email');
+  const passwordInput = document.getElementById('firebase-password');
+  const passwordToggle = document.getElementById('password-toggle');
+  const passwordToggleIcon = document.getElementById('toggle-icon');
+  const emailLoginBtn = document.getElementById('firebase-email-login');
+  const logoutBtn = document.getElementById('firebase-logout');
+  const errorDiv = document.getElementById('firebase-error');
+  
+  // Clear error message
+  function clearError() {
+    if (errorDiv) errorDiv.textContent = '';
+  }
+  
+  // Show error message
+  function showError(message) {
+    if (errorDiv) errorDiv.textContent = message;
+  }
+
+  // Password toggle functionality
+  if (passwordToggle && passwordInput && passwordToggleIcon) {
+    passwordToggle.addEventListener('click', function() {
+      console.log('👁️ Password toggle clicked, current type:', passwordInput.type);
+      
+      if (passwordInput.type === 'password') {
+        // Show password
+        passwordInput.type = 'text';
+        passwordToggleIcon.className = 'fas fa-eye';
+        passwordToggle.setAttribute('aria-label', 'Hide password');
+        console.log('👁️ Changed to open eye (password visible)');
+      } else {
+        // Hide password
+        passwordInput.type = 'password';
+        passwordToggleIcon.className = 'fas fa-eye-slash';
+        passwordToggle.setAttribute('aria-label', 'Show password');
+        console.log('👁️ Changed to slashed eye (password hidden)');
+      }
+    });
+  }
+  
+  // Email/Password login
+  if (emailLoginBtn) {
+    emailLoginBtn.addEventListener('click', async function() {
+      clearError();
+      const email = emailInput.value.trim();
+      const password = passwordInput.value.trim();
+      
+      if (!email || !password) {
+        showError('Please enter both email and password.');
+        return;
+      }
+      
+      try {
+        emailLoginBtn.textContent = 'Signing in...';
+        emailLoginBtn.disabled = true;
+        
+        await window.firebaseAuth.signInEmail(email, password);
+        
+        // Clear form
+        emailInput.value = '';
+        passwordInput.value = '';
+        
+      } catch (error) {
+        console.error('Login error:', error);
+        
+        // User-friendly error messages
+        let errorMessage = 'Login failed. Please try again.';
+        if (error.code === 'auth/user-not-found') {
+          errorMessage = 'No account found with this email. Contact your instructor.';
+        } else if (error.code === 'auth/wrong-password') {
+          errorMessage = 'Incorrect password. Please try again.';
+        } else if (error.code === 'auth/invalid-email') {
+          errorMessage = 'Invalid email format.';
+        } else if (error.code === 'auth/too-many-requests') {
+          errorMessage = 'Too many failed attempts. Please wait before trying again.';
+        }
+        
+        showError(errorMessage);
+      } finally {
+        emailLoginBtn.textContent = 'Sign In with Email';
+        emailLoginBtn.disabled = false;
+      }
+    });
+  }
+  
+  
+  // Logout
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', async function() {
+      try {
+        logoutBtn.textContent = 'Signing out...';
+        logoutBtn.disabled = true;
+        
+        await window.firebaseAuth.signOut();
+        
+      } catch (error) {
+        console.error('Logout error:', error);
+      } finally {
+        logoutBtn.textContent = 'Sign Out';
+        logoutBtn.disabled = false;
+      }
+    });
+  }
+  
+  // Enter key support for login form
+  if (passwordInput) {
+    passwordInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        emailLoginBtn.click();
+      }
+    });
+  }
+  
+  // Privacy modal functionality
+  const privacyLink = document.getElementById('privacy-info-link');
+  const privacyModal = document.getElementById('privacy-modal');
+  const privacyClose = document.getElementById('privacy-modal-close');
+  const privacyOk = document.getElementById('privacy-modal-ok');
+  
+  function showPrivacyModal() {
+    if (privacyModal) {
+      privacyModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  
+  function hidePrivacyModal() {
+    if (privacyModal) {
+      privacyModal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  }
+  
+  // Privacy link click
+  if (privacyLink) {
+    privacyLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      showPrivacyModal();
+    });
+  }
+  
+  // Close privacy modal
+  if (privacyClose) {
+    privacyClose.addEventListener('click', hidePrivacyModal);
+  }
+  
+  if (privacyOk) {
+    privacyOk.addEventListener('click', hidePrivacyModal);
+  }
+  
+  // Close modal when clicking outside
+  if (privacyModal) {
+    privacyModal.addEventListener('click', function(e) {
+      if (e.target === privacyModal) {
+        hidePrivacyModal();
+      }
+    });
+  }
+  
+  // Close modal with Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && privacyModal && privacyModal.style.display === 'flex') {
+      hidePrivacyModal();
+    }
+  });
+  
+});
+</script>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Horizons: New Frontiers in Immersive Listening</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Scroll Sections - Create scroll space -->
+    <div class="scroll-sections">
+        <div class="section"></div>
+        <div class="section"></div>
+        <div class="section"></div>
+        <div class="section"></div>
+        <div class="section"></div>
+        <div class="section"></div>
+        <div class="section"></div>
+    </div>
+
+    <!-- Fixed Concert Header with overlays -->
+    <div class="concert-header">
+        <div class="banner-container">
+            <img src="concert-banner.png" alt="Abstract soundscape visualization" class="banner-image">
+        </div>
+        
+        <!-- Overlay 1: Title -->
+        <div class="info-overlay overlay-1">
+            <div class="info-content">
+                <h1>Virtual Horizons:<br>New Frontiers in<br>Immersive Listening</h1>
+            </div>
+        </div>
+        
+        <!-- Overlay 2: Date -->
+        <div class="info-overlay overlay-2">
+            <div class="info-content">
+                <h2 class="concert-date" style="font-size: 2rem;">December 2, 2025</h2>
+            </div>
+        </div>
+        
+        <!-- Overlay 3: Time -->
+        <div class="info-overlay overlay-3">
+            <div class="info-content">
+                <h2 class="concert-time" style="font-size: 2.5rem;">7:30 PM</h2>
+            </div>
+        </div>
+        
+        <!-- Overlay 4: Venue -->
+        <div class="info-overlay overlay-4">
+            <div class="info-content venue-block" style="font-size: 1.5rem;">
+                <h4>Olin Concert Hall</h4>
+                <h5>75 Russell St</h5>
+                <h5>Lewiston, ME 04240</h5>
+            </div>
+        </div>
+        
+        <!-- Overlay 5: À propos heading and first paragraph -->
+        <div class="info-overlay overlay-5">
+            <div class="info-content apropos-block">
+                <h1>À propos</h1>
+                <p>Original works by students of the Bates Sound Studio for fixed media electronic composition. Experience an evening of immersive surround-sound listening in 8 speakers.</p>
+                <p>Presented by The Bates Department of Music.</p>
+                <p style="font-size: 0.95rem;">Please enjoy using your phones rather than<br>wasting paper programs, but a gentle reminder to<br><span style="color: red;">PLEASE SILENCE YOUR DEVICES DURING THE CONCERT</span><br>to ensure this music will be heard as the creators intend.</p>
+            </div>
+        </div>
+        
+        <!-- Overlay 6: Second À propos paragraph with video -->
+        <div class="info-overlay overlay-6">
+            <div class="info-content apropos-block">
+                <p>The works presented tonight<br>
+                    are the culminating projects<br>
+                    by musical creators enrolled in<br>
+                    <a href="https://einbahnstrasse.github.io/MUS218A-Soundscapes-FA2025/" target="_blank"><em>Soundscapes: Recording and Designing Sound</em></a><br>
+                    taught by <a href="https://louisgoldford.com/" target="_blank">Prof. Louis Goldford</a>.</p>
+                
+                <div class="video-container">
+                    <video autoplay loop muted playsinline>
+                        <!-- <source src="spatgris.demo.v02.mov" type="video/quicktime"> -->
+                        <source src="spatgris.demo.v03.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                
+                <p class="video-caption">How we make sounds <strong>move</strong> around you:<br>colored dots represent sounds,<br>and blocks represent speakers.<br>Composing with movement!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Program Section -->
+    <main class="container">
+        <div class="program-header">
+            <h2>PROGRAM</h2>
+        </div>
+
+        <div class="pieces" id="pieces-container">
+            <!-- Pieces will be inserted here by JavaScript -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Bates Sound Studio • December 2025</p>
+    </footer>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator-wrapper" id="scroll-indicator">
+        <div class="scroll-text">scroll</div>
+        <div class="scroll-line"></div>
+    </div>
+
+        <!-- Marquee warnings -->
+        <div class="marquee marquee-top">
+            <div class="marquee-inner">
+                <span class="marquee-text">
+                    Please enjoy using your phones rather than wasting paper programs, 
+                    but a gentle reminder to PLEASE SILENCE YOUR DEVICES DURING THE CONCERT 
+                    to ensure this music will be heard as the creators intend.
+                </span>
+                <span class="marquee-text">
+                    Please enjoy using your phones rather than wasting paper programs, 
+                    but a gentle reminder to PLEASE SILENCE YOUR DEVICES DURING THE CONCERT 
+                    to ensure this music will be heard as the creators intend.
+                </span>
+                <span class="marquee-text">
+                    Please enjoy using your phones rather than wasting paper programs, 
+                    but a gentle reminder to PLEASE SILENCE YOUR DEVICES DURING THE CONCERT 
+                    to ensure this music will be heard as the creators intend.
+                </span>
+            </div>
+        </div>
+
+        <div class="marquee marquee-bottom">
+            <div class="marquee-inner">
+                <span class="marquee-text">
+                    Please enjoy using your phones rather than wasting paper programs, 
+                    but a gentle reminder to PLEASE SILENCE YOUR DEVICES DURING THE CONCERT 
+                    to ensure this music will be heard as the creators intend.
+                </span>
+                <span class="marquee-text">
+                    Please enjoy using your phones rather than wasting paper programs, 
+                    but a gentle reminder to PLEASE SILENCE YOUR DEVICES DURING THE CONCERT 
+                    to ensure this music will be heard as the creators intend.
+                </span>
+                <span class="marquee-text">
+                    Please enjoy using your phones rather than wasting paper programs, 
+                    but a gentle reminder to PLEASE SILENCE YOUR DEVICES DURING THE CONCERT 
+                    to ensure this music will be heard as the creators intend.
+                </span>
+            </div>
+        </div>
+
+    <script src="script.js"></script>
+    <script src="scroll-controller.js"></script>
+</body>
+</html>
