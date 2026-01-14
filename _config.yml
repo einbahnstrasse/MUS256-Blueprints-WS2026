@@ -136,40 +136,40 @@ kramdown:
 weekly-deadline-statement: Unless otherwise noted, assignments are always due online on GitHub at 11:59 PM the following Monday night each week!
 Bates-calendar: https://calendar.google.com/calendar/embed?src=bates.edu_hq580lfthp57u4bolk05oskgbs%40group.calendar.google.com&ctz=America%2FNew_York 
 
-week-01: 3 Sept. (short week)      
-week-02: 8 Sept.            
-week-03: 15 Sept.            
-week-04: 22 Sept.            
-week-05: 29 Sept.            
-week-06: 6 Oct.  
-week-07: 13 Oct.  
-week-08: 20 Oct.  
-week-09: 27 Oct.  
-week-10: 3 Nov.  
-week-11: 10 Nov.  
-week-12: 17 Nov.  
-week-13: 24 Nov.  
-week-14: 1 Dec.  
-week-15: 8 Dec.   
-# week-16: N/A  
-# week-17: N/A  
-# week-18: N/A   
+week-01: Jan 14      
+week-02: Jan 19      
+week-03: Jan 26      
+week-04: Feb 2      
+week-05: Feb 9      
+# February Recess: Feb 16–20 (no classes)
+week-06: Feb 23      
+week-07: Mar 2      
+week-08: Mar 9      
+# March Recess: Mar 18–22 (no classes)      
+week-09: Mar 23      
+week-10: Mar 30      
+week-11: Apr 6      
+week-12: Apr 13      
+# week-13: N/A
+# week-14: N/A
+# week-15: N/A
 
-week-01-topic: What is Sound?   
-week-02-topic: Sound File Treatments + Early Tape Music           
-week-03-topic: Sampling + MIDI Controllers              
-week-04-topic: FX Plugins, Automation, Mixing        
-week-05-topic: Micromontage + Field Recording      
-week-06-topic: Synth Plugins, Emulators, Microtonality         
-week-07-topic: Frequency Domain Analysis/Resynthesis               
-week-08-topic: Modular Synthesis       
-week-09-topic: Multichannel Spatial Audio                
-week-10-topic: TBD             
-week-11-topic: TBD                  
-week-12-topic: TBD    
-week-13-topic: TBD       
-week-14-topic: Final Concert + Exam            
-week-15-topic: Finals Week            
+week-01-topic: Course Overview 
+week-02-topic: Signal Flow in MaxMSP
+week-03-topic: Filters + Resonance
+week-04-topic: Formant Modeling + Source–Filter Systems
+week-05-topic: Karplus–Strong + Waveguide String Models
+week-06-topic: Bowed and Wind Instrument Physical Models
+week-07-topic: Modalys — Strings, and Plates
+week-08-topic: Material Properties and Hybrid Physical Models
+week-09-topic: SPAT~ and Multichannel Audio
+week-10-topic: Computer-Assisted Composition  
+week-11-topic: Finite Elements, Meshes, and Modal Analysis
+week-12-topic: Real-Time Analysis/Resynthesis  
+week-13-topic: Final Integration & Project Presentations
+     
+# week-14-topic: Final Concert + Exam            
+# week-15-topic: Finals Week            
 # week-16-topic: Modular Synthesis (Part 2) in VCV Rack      
 # week-17-topic: Modular Synthesis (Part 3) in VCV Rack     
 # week-18-topic: Listening Session (Final Projects)     
