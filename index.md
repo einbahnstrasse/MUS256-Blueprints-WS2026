@@ -68,34 +68,92 @@ Class sessions are structured with an emphasis on creating, transforming, and sc
 
 ### 2.1 Course Goals      
 
-This course will equip students with the basic protocols of working in a studio enviornment, acquainting them with the fundamnetals of acoustics and sound, digital audio, an overview of the history of techniques for analog and digital audio synthesis, and will provide direct, hands-on experience creating multichannel electronic music in a Digital Audio Workstation (DAW), as well as an inroduction to the MaxMSP real-time audio and synthesis environment. 
+Students will learn to **integrate** basic methods of computer music into a foundational MaxMSP workflow by **building fundamental control structures** such as loops and functions in addition to **contstructing** basic synthesizer elements. Various data clases, as well as historic approaches to classic synthesis and computer music paradigms by twentieth and twenty-first century composers, will be **observed** and **understood**. 
   
 ### 2.2 Learning Outcomes  
 
 _By the end of the course, students will be able to:_  
 
-1. **implement** and **demonstrate** the tools of fixed media composition within an artistic workflow  
+1. **implement** and **demonstrate** the tools of computer music and synthesis within an artistic workflow  
 2. **classify** and **identify** a variety of synthesis methods      
-3. **identify**, **critique**, and **experiment** with differing approaches to sound synthesis  
-4. **compare** and **contrast** real-time and offline synthesis methodologies   
-5. **assemble** an array of preferred tools into a personal creative coding practice, including a logical debugging process  
+3. **design** compositional algorithms and **apply** them to the control of synthesizers  
+4. **identify**, **critique**, and **experiment** with differing approaches to sound synthesis  
+5. **compare** and **contrast** real-time and offline computer-assisted methodologies   
+6. **assemble** favored tools into a personal creative coding practice, including a logical debugging process  
+7. **submit** and **version** assignments through _GitHub_  
 
-### 2.3 Software + Hardware    
+### 2.3 Course Materials        
 
 _See the [RESOURCES TAB]({{ site.baseurl }}/resources){:target="_blank"} for download and documentation links._  
 
-Although no specific requirement exists for hardware, the following are strongly recommended. Students who do not have access to some or all of these are encouraged to enroll and to make ample use of the Bates Sound Studio facilities, where they can use its computers to complete all assignments. 
+Although no specific requirement exists for software or hardware computational tools, the following list includes some computational tools that are strongly recommended. Students who do not have access to some or all of these are encouraged to enroll and to make ample use of the Bates Sound Studio facilities and DMS lab computers, where our campus computers may be used to complete all assignments. 
 
 1. personal laptop  
-2. headphones  
-3. external hard drive _(or cloud storage to back up your files)_  
-4. Reaper (open source software) 
-5. Ableton Live Suite (premium software, optional) 
-6. SpatGRIS (open source software)   
-7. MaxMSP (premium software, but only utilized during a free trial period) 
-8. Google Chrome or any web browser that will allow you to access our Course Website & materials   
-9. Various other plugins and apps listed throughout the semester (open source software)  
-  
+2. headphones    
+3. notepad and writing utensils for in-class note-taking     
+4. external hard drive _(or cloud storage to back up media files and assets)_  
+5. Access to the MaxMSP software (premium software but available on campus computers for free) 
+6. Google Chrome or web browser that will allow you to access our Course Website & materials   
+7. Various Max libraries and boilers posted throughout the semester (distributed through our course webite), such as the bach library for computer-assisted composition. See our Resources page for links and instructions.   
+8. Terminal (pre-packaged on macOS/Linux) or Terminal Emulator (download for Windows users)  
+9. Git version control system   
+10. a public account on _GitHub.com_  
+
+#### 2.3.1 Access to MaxMSP + Lab Scheduling      
+
+You are **not required** to install MaxMSP on a personal computer in order to complete coursework for this class. MaxMSP is available to you on all computers in the Bates Sound Studio and in [DMS Computer Lab](https://www.bates.edu/digital-media/){:target="_blank"}, and these resources are sufficient for completing all assigned work.    
+
+Because MaxMSP assignments and project work will be completed on a regular, semi-daily basis throughout the semester, students who rely on campus computers are expected to plan their work time in advance and schedule lab access in accordance with their normal availability. Timely completion of assignments depends on proactive planning, regular use of available lab resources, and committing work to your GitHub account by the deadlines. While lab availability may vary at busy times, the combination of the Bates Sound Studio and the DMS Computer Lab provides multiple access points. For this reason, extensions cannot be granted on the basis of difficulty securing lab time. Planning ahead is considered _part of the assignment workflow_ for this course.    
+
+Installing MaxMSP on a personal device is therefore a matter of convenience rather than necessity. Students who choose to do so may find it easier to work flexibly without reserving lab time or traveling to campus, but this choice is entirely optional.        
+
+If you choose to have MaxMSP on your device, there is a monthly subscription of $12.99, and I think they are still offering a first month free trial. So, if you start a trial now, by April you would pay 3 months of subscription for the entire semester, which should amount to $38.97. 
+
+You can find details at: [https://cycling74.com/shop/max](https://cycling74.com/shop/max){:target="_blank"}     
+
+Using MaxMSP without a license disables all saving features, so you'd need your own license to have it working on your own computer.     
+
+#### 2.3.2 Public GitHub Accounts           
+
+All MaxMSP assignments and related coursework will be submitted via [GitHub.com.](https://github.com/){:target="_blank"} Each student is required to maintain a public GitHub account for the duration of the semester and to organize their work using a clear, consistent repository and folder structure; with files ("patches") organized clearly into weekly subdirectories (as demonstrated in class).  
+
+At the start of the semester:
+- Create a GitHub account (if you do not already have one)
+- Share your GitHub username with the instructor (via the course's Intro Survey)
+- Maintain public repositories so your course work can be graded without special permissions
+
+Detailed setup instructions and a tutorial video will be provided in class.
+
+#### 2.3.3 Course Format + Deadlines     
+
+Demonstrations and instruction take place in class: Mondays and Wednesdays. Your task is to **rebuild the MaxMSP pedagogical "patches"** introduced during the week. **Actively take notes on paper** in class so that you can reconstruct these patches later in the labs, undersand how they function, and how to creatively change them. If you have a personal laptop with MaxMSP licensed, you are invited to begin this work alongside the in-class demonstrations. However, in class, use of a personal laptop is strictly limited to MaxMSP coursework only. You will be instructed to put your computer away if you are using your laptop for other purposes.  
+
+Each week’s material is expected to be reconstructed independently throughout the week and ***must be fully completed, committed, and pushed to your GitHub account by 11:59 p.m. on Saturdays.***
+
+Your GitHub repository at the time of grading serves as the official record of submission. Work that is not committed by the deadline is considered incomplete for grading purposes.   
+
+#### 2.3.4 Grading Timing and Late Work Policy    
+
+Grading for weekly assignments occurs on Sundays. Because of this workflow:     
+- Work that is not committed by Saturday night at 11:59 p.m. will be considered late     
+- Late submissions will be graded with deductions     
+- Extensions may not be granted retroactively      
+
+This policy ensures consistent evaluation across the class and reflects the professional expectation that work be ready for review at scheduled times.
+
+#### 2.3.5 Late Submissions          
+
+Late work will be assessed according to the following schedule:
+- Submitted by Saturday, 11:59 p.m.: on time; no penalty
+- Submitted on Sunday (after 11:59 p.m. Saturday): −10%
+- Submitted on Monday: -20%
+- Submitted on Tuesday: −30%
+- Submitted on Wednesday: −40%
+- Submitted on Thursday: −50%
+- More than one week late: may receive no credit unless prior arrangements have been approved by the instructor. 
+
+Submissions that are missing required files, are improperly organized, or cannot be located in your GitHub repository at the time of grading may be treated as late or incomplete.
+
 ### 2.4 Output + Assessment   
 
 #### 2.4.1 Weighted Components    
@@ -105,10 +163,10 @@ _Your course grade will be determined by the following weights:_
 - Assignemnts: 20%  
 - Attendance + Participation: 10%    
 - 3-Minute Stereo Sketch (Midterm): 15%   
-- Multichannel Work (Final*): 40%    
+- Final Work or Demonstration (Final*): 40%    
 - Final Exam: 15%    
 
-_*Your Final Multichannel Work score will also include your attendance and participation at our December 2 concert._ 
+_*Your Final Work or Demonstration score will also include your attendance and participation at our final concert, to be announced soon, which will likely take place during the last week of classes, April 13-17._ 
 
 See [6. General Grading Rubric](#6-general-grading-rubric) below for a detailed summary of project work grading policies.    
 
@@ -117,7 +175,7 @@ See [6. General Grading Rubric](#6-general-grading-rubric) below for a detailed 
 ### 3.1 General Expectations   
 
 1. **Arrive on time** to all course sessions.  
-<!-- 2. Spend **2-4 additional hours per week** _(outside of class)_ on the timely completion of our assignments and projects.   -->
+2. Spend **additional hours outside of class each week** on the timely completion of our assignments and projects (see 3.2.1 below).  
 3. Submit assignments by the given deadlines on Lyceum.   
 4. **Back up and organize your work REGULARLY.** _Catastrophic loss of materials is not, unfortunately, an excuse for missed deadlines!_  
 
@@ -133,21 +191,20 @@ At Bates College, 1 course credit is equivalent to approximately 180 hours of to
 
 ### 3.3 Communication   
 
-1. Weekly class sessions will be held in the Bates Sound Studio. Questions can easily be addressed during, as well as before and after, our class.   
+1. Weekly class sessions will be held in the Bates Sound Studio. Questions can easily be addressed during, as well as before and after, our class, over email and during office hours.   
 2. Bates email accounts are our official means of communication.  
 3. **Requests for assistance:** Send an email to the instructor and studio assistant. I will respond during normal working hours; requests arriving "after hours" will be answered on subsequent weekdays.  
 4. **Actively participate** in our class discussions. **Thoughtfully contribute to a positive classroom environment,** while supporting and challenging your colleagues’ ideas.  
    
 ### 3.4 Self-Guided Work  
 
-1. All students are responsible for building each of our DAW sessions (e.g., in Reaper) and each of our pedagogical patches (e.g., in MaxMSP) **by themselves**, regardless of whether a student needs to be absent or late from any class session. 
-2. This policy fosters a habit of **personal practice** using our software and **promotes self-guided learning** and **understanding**.  
-3. Students are also responsbile for producing their **own work** throughout the class, including their own builds of our pedagogical patches, DAW sessions, and sample recordings, in accordance with our [Academic Integrity Policy](#academic-integrity-policy) below.  
-4. Direct copies or clones of other people's creative work are evident in the line-by-line code of the software itself, and are therefore easily traceable. 
-5. Students should rely on our **seminar discussions**, **demonstration notes and software comments**, **office hours**, software **documentation**, **help files**, and **user forums** to actively troublehsoot and **debug** issues that will naturally arise during the learning process and interactions with new software. _Many folks learn best this way: as they rapidly problem solve and troubleshoot their project work._   
-6. By adopting this policy, we avoid fostering a habit of **relying on others' code**: that is, by constantly borrowing from colleagues or forums without learning to understand the software's underlying functionality.  
-7. This policy is **not to enforce copying or mimicking**, but rather to promote **reasoning through the course materials** and adopting its utilization **as template and boiler documents**; that is, as a basis for future work, aimed at **building independence and creativity**. At its core, this policy combats the habit of **copying code** without understanding its functionality.         
-8. At first, students may **progress slowly** through this process. However, just like learning to drive a car, students will become more efficient and faster over time, especially as they **optimize their software routine** and **build resourcefulness**. Through our class work and projects, students **will learn to solve problems faster**, to actively seek solutions from the best resources for any given task, and to find resolution in an efficient, self-guided manner.   
+1. All students are responsible for building each of our pedagogical Max patches **by themselves**.    
+2. Rebuilding pedagogical patches fosters a habit of **personal practice** in Max and **promotes self-guided learning** and **understanding** of each patch's raw components.  
+3. Students are also responsbile for producing their **own work** throughout the class, including their own builds of our pedagogical patches, in accordance with our [Academic Integrity Policy](#academic-integrity-policy) below.  
+4. Students should rely on our **class discussions**, **patch comments**, **office hours**, Max's extensive **documentation**, **help files**, and **user forums** to actively troublehsoot and **debug** issues that are naturally expected to arise during patching/coding. _This is how one learns best as they engage in project work._   
+5. By adopting this policy, we avoid fostering a habit of **relying on others' code**: that is, constantly borrowing Max patches from colleagues or forums without learning to understand its underlying functionality.  
+6. This policy is **not to enforce copying or mimicking**, but rather to promote **reasoning through the pedagogical lessons** and adopting these patches **as templates and boiler documents**, that is, as a basis for future work, aimed at **building independence and creativity**. At its core, this policy, therefore, combats the habit of **copying code** without understanding its functioning.         
+7. At first, students will **progress slowly**. However, just like learning to drive a car, students  become more efficient over time as they **build resourcefulness**. Through our class patches and projects, students **will learn to debug faster**, to actively seek solutions from the best resources for any given necessity, and to find resolution in an efficient, self-guided manner.   
 
 ### 3.5 Attendance + Participation Policy   
 
@@ -162,6 +219,7 @@ Unlike the orchestra, however, in class there is no “sub list” to fill your 
 Success in this course depends on your consistent attendance and active engagement with our skills building goals. **Up to 2 excused absences are permitted. After these 2, additional absences will be treated as unexcused and will negatively impact your attendance and participation grade**. If you anticipate conflicts, it is my expectation that you will speak with me as soon as possible and early in the semester (i.e., by Week 3). **A lack of communication about planned absences will therefore be treated as unexcused**.   
 
 **Absences and/or lateness must be accompanied by documentation and/or include advance notice**. These will not impact on your grade if they are reported in advance and are infrequent. Absences will be excused in cases of: documentation of illness provided by a doctor’s note and/or SSA, religious observance, official school-related activity, and on a case-by-case basis for other critical events, at the discretion of the instructor.
+
 Note that **you are never required to disclose personal information to me**. Your SSA can serve as a liaison to communicate personal needs to me as well. Should there be significant campus changes regarding public health, all accommodations will be made to ensure your progress and wellbeing.   
 
 In a skills-building music technology course such as this one, we must ensure that you are up-to-date on our materials each week — partly because the next week will often build on the materials covered last week.  
@@ -216,7 +274,29 @@ Missing _more than_ 2 class sessions will result in a grade reduction. Additiona
 </div>
 
 #### 3.5.2 Absences   
-  
+
+All absences must be communicated and documented to be considered _excused_. This course does **not** permit undocumented or uncommunicated absences.   
+
+Students may have up to 2 excused absences over the semester, provided that those absences meet the criteria below and are properly communicated. These are not “free” or automatic absences, and they still require documentation or advance notice as outlined here.   
+
+##### 3.5.2.1 What Counts as an Excused Absence    
+
+An absence may be excused under the following conditions:
+- Documented illness (e.g., doctor’s note or equivalent medical documentation)
+- Religious observance
+- Official school-related activities (with documentation and advance notice)
+- Other serious or unavoidable circumstances, considered case by case at the instructor’s discretion
+
+Planned absences should be reported to the instructor by our Week 3 class _(see our [Schedule]({{ site.baseurl }}/schedule/){:target="_blank"} page)._   
+
+##### 3.5.2.2 Absences + Grade Impact    
+
+Absences that are not communicated in advance and/or not documented will be treated as unexcused. Unexcused absences will lower your participation grade, even if you have not exceeded the two-absence threshold. The first 2 properly documented and excused absences will not negatively affect your participation grade.
+
+Each unexcused absence will result in a deduction from your final participation grade. The first unexcused absence results in a 5% deduction. Each additional unexcused absence results in a 10% deduction.
+
+Students are permitted up to 2 excused absences without impact on their participation grade. Additional excused absences beyond this threshold will result in a participation grade adjustment, or may require alternative work, at the discretion of the instructor. In cases of ongoing illness, emergency, or other significant circumstances, students are expected to contact the instructor as early as possible to discuss options, which may include: Supplemental or alternative assignments, Consultation with Student Affairs or Accessible Education services. Even when absences are excused, sustained non-attendance may make successful completion of the course difficult or impossible.   
+
 ##### 3.5.2.1 Procedure for Absences      
 
 If you must be absent for any reason, regardless of whether that absence is excused or unexcused, follow this **Procedure for Absences:**   
@@ -235,13 +315,70 @@ If you must be absent for any reason, regardless of whether that absence is excu
 2. Rather, students should **only share screenshots** of their work. In other words, all students should build each of the pedagogical models by themselves.   
 3. See [How to take a screenshot on a Mac or PC](https://reviewed.usatoday.com/laptops/features/how-to-take-a-screenshot-on-mac-and-pc){:target="_blank"} for further details.   
 
+#### 3.5.3 Particpation      
+
+It is assumed that students are adults; fully capable of meaningful engagement in a shared intellectual space. The following rubric is not intended to police behavior or treat students as children, but rather to clarify expectations that are foundational to college-level learning. These expectations are articulated here explicitly, particularly with respect to attentiveness and engagement with shared materials, supporting a focused, respectful, and productive classroom culture, and to ensure that participation is assessed transparently and fairly.
+
+<div class="latetable">
+<table>
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Participation Grade</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">A (Excellent)</td>
+<td markdown="span">
+Fully attentive throughout class; consistently engaged with discussions, group work, lecture materials, and projected media; demonstrates clear preparation; contributes thoughtfully and constructively without prompting; helps sustain a focused and collaborative classroom environment.
+</td>
+</tr>
+
+<tr>
+<td markdown="span">B (Good)</td>
+<td markdown="span">
+Generally attentive and engaged; participates regularly in discussions and group activities; prepared for class; demonstrates respect for shared materials and classmates; maintains focus without prompting. Fundamentally shows knowledge of reading materials and work outside of class.  
+</td>
+</tr>
+
+<tr>
+<td markdown="span">C (Adequate)</td>
+<td markdown="span">
+Inconsistent attentiveness; participates primarily when called upon but does not volunteer; engagement with discussions or projected media is uneven; preparation may be incomplete; occasional off-task behaviors or reminders to refocus.
+</td>
+</tr>
+
+<tr>
+<td markdown="span">D (Minimal)</td>
+<td markdown="span">
+Frequently disengaged; limited participation in discussions; inattentive to videos or demonstrations; repeated off-task behaviors (e.g., fidgeting, playing with objects, unrelated work or distracting use of phones or computers); necessitates reminders to engage, disruptive presentation.  
+</td>
+</tr>
+
+<tr>
+<td markdown="span">F (Absent Participation)</td>
+<td markdown="span">
+Persistent disengagement; does not meaningfully participate in class activities or group work; consistently inattentive to shared materials; interference with learning environment for self or others.
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+This rubric exists to clarify what productive engagement looks like in a professional environment such as ours. It assumes that we are all capable adults who listen attentively and communicate directly in a collective setting. Your participation score is less about _speaking often_ and more about being _genuinely present:_ responding thoughtfully, supporting peers’ contributions, and posing questions in ways that keep the class moving forward. When these expectations are explicit, they are not constraints but a common framework that allows discussion, experimentation, and learning to function well for everyone in our studio community.    
+
 ## 4. General Schedule of Topics   
 
 ### 4.1 Disclaimer About Possible Changes   
 
 _Please note: Our schedule of topics and their precise order may change._  
 
-This syllabus is intended to give the student guidance in what may be covered during the semester and will be followed as closely as possible. However, the instructor reserves the right to modify, supplement, and make changes as the course needs arise, especially in response to class pacing, technical needs, and other issues. 
+This syllabus is intended to give the student guidance in what may be covered during the semester. However, the instructor may modify, supplement, and make changes as course needs arise, especially in response to class pacing, technical needs, and other issues. 
 
 _See the [SCHEDULE page]({{ site.baseurl }}/schedule/){:target="_blank"} for a precise weekly breakdown of topics and tasks. Changes will be updated there._  
 
@@ -329,31 +466,6 @@ _For a detailed list of assignments, points, and deadlines, see the [GRADING pag
 <td markdown="span">13</td>
 <td markdown="span">{{ site.week-13 }}</td>
 <td markdown="span"><a href="{{ site.baseurl }}/schedule/#w13" target="_blank">{{ site.week-13-topic }}</a></td>
-</tr>
-<tr>
-<td markdown="span">14</td>
-<td markdown="span">{{ site.week-14 }}</td>
-<td markdown="span"><a href="{{ site.baseurl }}/schedule/#w14" target="_blank">{{ site.week-14-topic }}</a></td>
-</tr>
-<tr>
-<td markdown="span">15</td>
-<td markdown="span">{{ site.week-15 }}</td>
-<td markdown="span"><a href="{{ site.baseurl }}/schedule/#w15" target="_blank">{{ site.week-15-topic }}</a></td>
-</tr>
-<tr>
-<td markdown="span">16</td>
-<td markdown="span">{{ site.week-16 }}</td>
-<td markdown="span"><a href="{{ site.baseurl }}/schedule/#w16" target="_blank">{{ site.week-16-topic }}</a></td>
-</tr>
-<tr>
-<td markdown="span">17</td>
-<td markdown="span">{{ site.week-17 }}</td>
-<td markdown="span"><a href="{{ site.baseurl }}/schedule/#w17" target="_blank">{{ site.week-17-topic }}</a></td>
-</tr>
-<tr>
-<td markdown="span">18</td>
-<td markdown="span">{{ site.week-18 }}</td>
-<td markdown="span"><a href="{{ site.baseurl }}/schedule/#w18" target="_blank">{{ site.week-18-topic }}</a></td>
 </tr>
 </tbody>
 </table>
@@ -489,6 +601,18 @@ The expectation here is twofold: first, that you **engage with the new practices
 
 As you develop material for your project, feel free to check in with me about the direction you're heading in, or any ideas that you feel strongly or weary about. A discussion and reflection can usually provide clarity in this area. You can even welcome feedback from your classmates as well, if you wish.     
 
+### 6.2 Extra Credit Opportunities        
+
+Students may earn **up to 20 points of extra credit** per concert by attending any of 2 selected concerts during the semester that are designated on the studio calendar. This season includes 2 eligible concerts (January 24 and February 28), featuring music by faculty composers and guest artists working with electronics, computers, and music-technology systems directly related to the tools and concepts studied in this course.
+
+To receive extra credit, students must:
+- **Attend the concert in full** and take notes during the performance.
+- **Submit a written reflection paper** (minimum: 4-5 pages) that thoughtfully connects what they heard and observed to specific course concepts, techniques, or analytical frameworks.   
+- Address how compositional strategies, technological tools, or listening perspectives from class are **reflected in the work(s) presented**.   
+- **Pose questions or curiosities** related to the concert that may not be answered by course content.  
+
+Reflection papers must be **submitted within 3 days of the concert** to receive credit. Extra credit is intended to support deeper engagement with contemporary musical practice and to encourage students to connect theoretical study with live artistic work in professional performance contexts.
+
 ## 7. Student Services    
 
 ### 7.1 IT Service Desk     
@@ -573,7 +697,7 @@ The [DMS Loaner Pool](https://batesdms.getconnect2.com/){:target="_blank"} has *
 
 ### 9.3 Studio Protocol    
 
-In professional studio environments, a studio protocol is a set of community guidelines respected by all members to ensure an equitable, safe, clean, productive, and efficient working space for all users. [In the Bates Sound Studio we must all respect our **community protocol guidelines**, which you can find here, on our Studio page](https://einbahnstrasse.github.io{{ site.baseurl }}/studio/#studio-protocol){:target="_blank"}.    
+In professional studio environments, a studio protocol is a set of community guidelines respected by all members to ensure an equitable, safe, clean, productive, and efficient working space for all users. [In the Bates Sound Studio we must all respect our **community protocol guidelines**, which you can find here, on our Studio page](https://einbahnstrasse.GitHub.io{{ site.baseurl }}/studio/#studio-protocol){:target="_blank"}.    
 
 ### 9.4 Revocation of Access  
 
