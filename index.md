@@ -166,7 +166,7 @@ _Your course grade will be determined by the following weights:_
 - Final Work or Demonstration (Final*): 40%    
 - Final Exam: 15%    
 
-_*Your Final Work or Demonstration score will also include your attendance and participation at our final concert on **Tuesday, April 14, 2026**._ 
+_*Your Final Work or Demonstration score will also include your attendance and participation at our final concert on **Tuesday, April 14, 2026, at 7:30 PM**._ 
 
 See [6. General Grading Rubric](#6-general-grading-rubric) below for a detailed summary of project work grading policies.    
 
