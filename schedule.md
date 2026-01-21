@@ -16,7 +16,7 @@ toc_icon: "bell"  # corr esponding Font Awesome icon name without the "fa" prefi
 toc_sticky: true   # enables sticky toc 
 read_time: true  
 date: 2025-08-25  
-last_modified_at: 2025-08-25  
+last_modified_at: 2026-01-21   
 
 ---
 
@@ -54,7 +54,7 @@ _Subscribe to our class Google calendar to see our upcoming deadlines. Daily sch
 
 ##### Assignments  
 * Setup your GitHub account   
-* Be sure to complete the [Intro Survey](https://forms.gle/nqnVBHxBcrBgcNcF6){:target="_blank"}   
+* Be sure to complete the [Intro Survey](https://forms.gle/aoBKQDuqnK1aoGH9A){:target="_blank"}   
 * Install + authorize Max (if using a personal license), or book time in the computer labs   
 * Watch the Max and GitHub intro videos above, rebuild tutorial patches, and commit them to your GitHub account by our weekly deadline: Saturdays, 11:59 PM.        
 * Make these starter patches (from the video):
@@ -81,16 +81,17 @@ _Use this list as a reference. Leave comments in your patches to remind yourself
 ## Week 2: {{ site.week-02 }}
 ### <span style="color: #fc3a52; font-size: 120%; ">{{ site.week-02-topic }}</span>
 
-#### Monday — Signal Flow & Debugging
+#### Monday     
+_MLK Jr. Day — No class._    
+
+#### Wednesdsay — Signal Flow & Debugging
+
 ##### In Class
 - signal vs control
-- patch readability and “patch hygiene”
-- debugging strategies
 - gain staging and safe monitoring
 
 ##### Tutorials
 * [MaxMSP Keyboard Shortcuts (MacOS and Windows)](https://docs.cycling74.com/max8/vignettes/shortcuts){:target="_blank"}
-* [Learn About Waveforms (The Pudding)](https://pudding.cool/2018/02/waveforms/){:target="_blank"}
 * [Introduction to MaxMSP Slides 19—35: History through New Terms](https://einbahnstrasse.github.io/MHL-intro-to-MaxMSP/#/19){:target="_blank"}
 * [MaxMSP Beginner's Cheatsheet (includes Data Classes)](https://cycling74-web-uploads.s3.amazonaws.com/5462c2a9bdbb99652da7a00a/2017-05-11T08:53:04Z/cheatsheet.pdf){:target="_blank"}
 
@@ -101,11 +102,19 @@ _Use this list as a reference. Leave comments in your patches to remind yourself
   - `lg.sound.out.v01.maxpat`
   - `00.getting.started.maxpat`
 
-#### Wednesday — Oscillators & Envelopes
+* * *
+
+## Week 3: {{ site.week-03 }}
+### <span style="color: #fc3a52; font-size: 120%; ">{{ site.week-02-topic }}</span>
+
+#### Monday — Oscillators & Envelopes
 ##### In Class
 - waveform families
 - oscillator objects
 - ADSR and envelope-as-time-system
+
+##### Tutorials
+* [Learn About Waveforms (The Pudding)](https://pudding.cool/2018/02/waveforms/){:target="_blank"}
 
 #### Listening
 * [Max Mathews, _Bicycle Built for Two_ (1961)](https://youtu.be/ZFUVR-clo8g?si=xdj3dzQyMBw-g1Ui){:target="_blank"}
@@ -130,7 +139,7 @@ _Use this list as a reference. Leave comments in your patches to remind yourself
 - duty cycle
 - **help files**: `option + click`
 
-* * *
+* * *  
 
 _More coming soon — check back frequently!_   
 
