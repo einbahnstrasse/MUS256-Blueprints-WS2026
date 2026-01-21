@@ -100,7 +100,7 @@ _MLK Jr. Day — No class._
   - `working.patch.v01.maxpat`
   - `lg.sound.in.v01.maxpat`
   - `lg.sound.out.v01.maxpat`
-  - `00.getting.started.maxpat`
+  <!-- - `00.getting.started.maxpat` -->
 
 * * *
 
