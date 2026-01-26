@@ -116,13 +116,19 @@ _MLK Jr. Day — No class._
 ##### Tutorials
 * [Learn About Waveforms (The Pudding)](https://pudding.cool/2018/02/waveforms/){:target="_blank"}
 
+#### Video Tutorials    
+_In lieu of class during inclement weather, follow the video tutorial and complete patches before Wednesday._      
+* [Week 3 Day 1 Patching](https://youtu.be/xrp77TXfdgY?si=a-e2qBi_Nl0IQNJD){:target="_blank"}      
+
+{% include video id="xrp77TXfdgY?si=a-e2qBi_Nl0IQNJD" provider="youtube" %}     
+
 #### Listening
 * [Max Mathews, _Bicycle Built for Two_ (1961)](https://youtu.be/ZFUVR-clo8g?si=xdj3dzQyMBw-g1Ui){:target="_blank"}
 
 {% include video id="ZFUVR-clo8g?si=xdj3dzQyMBw-g1Ui" provider="youtube" %}
 
 ##### Patches    
-- `_scaffold.v01.maxpat`
+<!-- - `_scaffold.v01.maxpat` -->
 - `01.basic.waveforms.maxpat`
 - `02.ADSR.maxpat`
 
