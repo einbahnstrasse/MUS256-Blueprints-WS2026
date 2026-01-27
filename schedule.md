@@ -145,6 +145,19 @@ _In lieu of class during inclement weather, follow the video tutorial and comple
 - duty cycle
 - **help files**: `option + click`
 
+#### Wednesday — Monosynth and MIDI Input     
+
+##### Patches    
+- `03.monosynth.variable.note.length.maxpat`
+- `04.additive.synth.with.randomization.maxpat`
+- MIDI subpatcher inside of `_scaffold.v01.maxpat`
+
+##### Terms, Concepts, Objects, Shortcuts
+- synthesis engine  
+- MIDI (Music Instrument Digital Interface)   
+- monosynthesizer     
+- additive synthesis    
+
 * * *  
 
 _More coming soon — check back frequently!_   
