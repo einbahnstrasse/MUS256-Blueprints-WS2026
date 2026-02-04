@@ -160,12 +160,15 @@ _In lieu of class during inclement weather, follow the video tutorial and comple
 
 * * *  
 
-## Week 4: {{ site.week-03 }}
-### <span style="color: #fc3a52; font-size: 120%; ">{{ site.week-04-topic }}</span>
+## Week 5: {{ site.week-5 }}
+### <span style="color: #fc3a52; font-size: 120%; ">{{ site.week-05-topic }}</span>
 
 #### Monday — Class Canceled; Illness    
 
 #### Wednesday — Polyphony and Voice Allocation       
+
+#### Boiler (Downloads)     
+* [Bach Polyphony Tutorial Patches](https://github.com/einbahnstrasse/bach-poly-boiler-patches){:target="_blank"}    
 
 ##### Patches    
 - `bach.poly.05.polyphony.maxpat`
