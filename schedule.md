@@ -33,7 +33,7 @@ _Subscribe to our class Google calendar to see our upcoming deadlines. Daily sch
 ## Week 1: {{ site.week-01 }}
 ### <span style="color: #fc3a52; font-size: 120%; ">{{ site.week-01-topic }}</span>
 
-#### Wednesday — Orientation & Setup (No patching)
+#### Wednesday 1/14 — Orientation & Setup (No patching)
 ##### In Class
 - Course overview and expectations
 - What “sonic systems” means in this course
@@ -81,10 +81,10 @@ _Use this list as a reference. Leave comments in your patches to remind yourself
 ## Week 2: {{ site.week-02 }}
 ### <span style="color: #fc3a52; font-size: 120%; ">{{ site.week-02-topic }}</span>
 
-#### Monday     
+#### Monday 1/19       
 _MLK Jr. Day — No class._    
 
-#### Wednesdsay — Signal Flow & Debugging
+#### Wednesdsay 1/21 — Signal Flow & Debugging
 
 ##### In Class
 - signal vs control
@@ -107,7 +107,7 @@ _MLK Jr. Day — No class._
 ## Week 3: {{ site.week-03 }}
 ### <span style="color: #fc3a52; font-size: 120%; ">{{ site.week-03-topic }}</span>
 
-#### Monday — Oscillators & Envelopes
+#### Monday 1/26 — Oscillators & Envelopes
 ##### In Class
 - waveform families
 - oscillator objects
@@ -145,7 +145,7 @@ _In lieu of class during inclement weather, follow the video tutorial and comple
 - duty cycle
 - **help files**: `option + click`
 
-#### Wednesday — Monosynth and MIDI Input     
+#### Wednesday 1/28 — Monosynth and MIDI Input     
 
 ##### Patches    
 - `03.monosynth.variable.note.length.maxpat`
@@ -160,12 +160,12 @@ _In lieu of class during inclement weather, follow the video tutorial and comple
 
 * * *  
 
-## Week 5: {{ site.week-5 }}
-### <span style="color: #fc3a52; font-size: 120%; ">{{ site.week-05-topic }}</span>
+## Week 4: {{ site.week-04 }}
+### <span style="color: #fc3a52; font-size: 120%; ">{{ site.week-04-topic }}</span>
 
-#### Monday — Class Canceled; Illness    
+#### Monday 2/2 — Class Canceled; Illness    
 
-#### Wednesday — Polyphony and Voice Allocation       
+#### Wednesday 2/4 — Polyphony and Voice Allocation       
 
 #### Boiler (Downloads)     
 * [Bach Polyphony Tutorial Patches](https://github.com/einbahnstrasse/bach-poly-boiler-patches){:target="_blank"}    
@@ -181,7 +181,22 @@ _In lieu of class during inclement weather, follow the video tutorial and comple
 - monosynthesizer     
 - additive synthesis    
 
+* * *     
 
+## Week 5: {{ site.week-05 }}
+### <span style="color: #fc3a52; font-size: 120%; ">{{ site.week-05-topic }}</span>
+
+#### Monday 2/9 — Euclidean Rhythms in Bach         
+
+#### Boiler (Downloads)     
+* [Interacting With Bach Tutorial Patches](https://github.com/einbahnstrasse/interacting-with-bach-W2026){:target="_blank"}    
+
+##### Patches    
+- `bach.interaction.t07.euclidean.idea.maxpat`
+
+#### Wednesday 2/11 — Karplus-Strong String Synthesis           
+
+_TBA_   
 
 * * *     
 
