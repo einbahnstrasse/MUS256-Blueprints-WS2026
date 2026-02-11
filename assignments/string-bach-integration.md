@@ -1,7 +1,7 @@
 ---
 layout: single    
 title: String Model + bach Integration    
-permalink: /string-bach-integration/    
+permalink: /assignments/string-bach-integration/    
 toc_icon: "graduation-cap"  
 toc: true      
 toc_sticky: true   # enables sticky toc  
