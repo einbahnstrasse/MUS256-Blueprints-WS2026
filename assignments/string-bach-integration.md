@@ -11,7 +11,7 @@ last_modified_at: 2026-02-11
 
 ---
 
-# Connecting String Synthesis to `bach.roll` + `poly~`
+<!-- # Connecting String Synthesis to `bach.roll` + `poly~` -->
 
 ## Deadline  
 **Saturday, Feburary 21, 2026, at 11:59 PM**   
