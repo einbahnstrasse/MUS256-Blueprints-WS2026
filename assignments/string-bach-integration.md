@@ -20,16 +20,16 @@ last_modified_at: 2026-02-11
 
 Last week, we used:
 
-- `<bach.roll>` for event generation  
-- `<poly~>` for polyphony  
-- a **simple sine wave engine** inside a `<poly~>` voice abstraction  
+- `<bach.roll-` for event generation  
+- `<poly~-` for polyphony  
+- a **simple sine wave engine** inside a `<poly~-` voice abstraction  
 
 For this brief assignment, your task is very simple, conceptually:
 
-> Replace (or extend) the sine wave engine with a **string synthesis model**  
-> and drive it using `<bach.roll>` through `<poly~>`.
-> Create your own notes, chords, or other events inside `<bach.roll>` to drive your new synth.     
-> Make a simple patch that does this and be prepared to share this in our next class.    
+- Replace (or extend) the sine wave engine with a **string synthesis model**  
+- and drive it using `<bach.roll-` through `<poly~-`.
+- Create your own notes, chords, or other events inside `<bach.roll-` to drive your new synth.     
+- Make a simple patch that does this and be prepared to share this in our next class.    
 
 You may use:     
 
@@ -39,8 +39,8 @@ You may use:
 
 The key requirement:     
 
-> The string synthesizer must be controlled by `<bach.roll>`       
-> and instantiated using `<poly~>` inside our scaffold patch structure.     
+- The string synthesizer must be controlled by `<bach.roll-`       
+- and instantiated using `<poly~-` inside our scaffold patch structure.     
 
 ---
 
@@ -51,12 +51,12 @@ The key requirement:
 You must work inside:     
 
 - `_scaffold.v01.maxpat` (or your updated scaffold)     
-- Your own `<poly~>` abstraction for voices     
-- Your own `<bach.roll>` object for event sequencing     
+- Your own `<poly~-` abstraction for voices     
+- Your own `<bach.roll-` object for event sequencing     
 
 This assignment is about **integration**, not inventing something totally from scratch, so you should **recycle** our previous **templates** and **combine** things.      
 
-You can also use `<line>` and `<function>` to control synthesis parameters in addition to pitch and rhythm.      
+You can also use `<line-` and `<function-` to control synthesis parameters in addition to pitch and rhythm.      
 
 It shouldn't occupy much of your time to do this.      
 
@@ -64,10 +64,10 @@ It shouldn't occupy much of your time to do this.
 
 ### 2. Build (or Adapt) a String Voice Abstraction     
 
-Inside your `<poly~>` voice patch:     
+Inside your `<poly~-` voice patch:     
 
 - Implement a **Karplus–Strong** or **allpass string model**     
-- Accept pitch, velocity, and duration from `<bach.roll>`     
+- Accept pitch, velocity, and duration from `<bach.roll-`     
 - Use proper gain staging     
 - Avoid clipping     
 
