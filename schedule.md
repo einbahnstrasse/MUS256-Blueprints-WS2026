@@ -209,7 +209,7 @@ _In lieu of class during inclement weather, follow the video tutorial and comple
 - `Karplus-Strong.v02.maxpat`     
 
 ##### Assignment    
-* [Connecting String Synthesis to <bach.roll> + <poly~>](/MUS256-Blueprints-WS2026/assignments/string-bach-integration/){:target="_blank"}    
+* [Connecting String Synthesis to bach.roll + poly~](/MUS256-Blueprints-WS2026/assignments/string-bach-integration/){:target="_blank"}    
 
 * * *     
 
