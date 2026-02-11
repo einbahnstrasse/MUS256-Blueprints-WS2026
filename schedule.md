@@ -197,11 +197,19 @@ _In lieu of class during inclement weather, follow the video tutorial and comple
 
 ##### Patches    
 - `bach.interaction.t07.euclidean.idea.maxpat`
-- `bach.interaction.t08.melodic.profile.maxpat`
+- ~~`bach.interaction.t08.melodic.profile.maxpat`~~   
 
 #### Wednesday 2/11 — Karplus-Strong String Synthesis           
 
-_TBA_   
+#### Boiler (Downloads)     
+* [Digital Waveguide Synthesis Boiler](https://github.com/einbahnstrasse/Digital-Waveguide-Boiler){:target="_blank"}    
+* [Test Sounds Media Folder](https://github.com/einbahnstrasse/synth-tech-media){:target="_blank"}    
+
+##### Patches    
+- `Karplus-Strong.v02.maxpat`     
+
+##### Assignment    
+* [Connecting String Synthesis to <bach.roll> + <poly~>](/MUS256-Blueprints-WS2026/assignments/string-bach-integration/){:target="_blank"}    
 
 * * *     
 
