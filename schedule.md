@@ -213,6 +213,15 @@ _In lieu of class during inclement weather, follow the video tutorial and comple
 
 * * *     
 
+## Week 6: {{ site.week-06 }}
+### <span style="color: #fc3a52; font-size: 120%; ">{{ site.week-06-topic }}</span>
+
+#### Monday 2/23 — String Stiffness             
+
+##### Patches    
+- `Karplus-Strong.v02.maxpat` _(...continued; add stiff string model)_     
+- `Karplus-Strong.v03.randomization.maxpat`   
+
 _More coming soon — check back frequently!_   
 
 * * *  
