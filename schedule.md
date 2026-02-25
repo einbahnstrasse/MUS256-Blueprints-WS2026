@@ -222,6 +222,27 @@ _In lieu of class during inclement weather, follow the video tutorial and comple
 - `Karplus-Strong.v02.maxpat` _(...continued; add stiff string model)_     
 - `Karplus-Strong.v03.randomization.maxpat`   
 
+#### Wednesday 2/25 — Resonance Models              
+
+#### Boiler (Downloads)     
+* [What is Resonance? Boiler](https://github.com/einbahnstrasse/resonance.boiler){:target="_blank"}    
+
+##### Patches    
+- `modres.from.a.chord.maxpat`    
+
+##### Assignment    
+* Create a free account, download, and install [SPAT](https://forum.ircam.fr/projects/detail/spat/#project-versions-anchor){:target="_blank"} and [Modalys](https://forum.ircam.fr/projects/detail/modalys/#project-versions-anchor){:target="_blank"} from the [IRCAM Forum website](https://forum.ircam.fr/){:target="_blank"}. 
+
+##### Terms, Concepts, Objects, Shortcuts
+- simple harmonic motion    
+- resonance    
+- dampening  
+- the `modres` algorithm    
+- filter     
+- filters in parallel and in series       
+  
+* * *  
+
 _More coming soon — check back frequently!_   
 
 * * *  
