@@ -227,6 +227,11 @@ _In lieu of class during inclement weather, follow the video tutorial and comple
 #### Boiler (Downloads)     
 * [What is Resonance? Boiler](https://github.com/einbahnstrasse/resonance.boiler){:target="_blank"}    
 
+#### Listening     
+* [Kaija Saariaho, _L'Amour de loin_ ("Love from Afar," 2000), Act I., “Traversée” (Crossing), 0:00—5:42](https://youtu.be/4GccAnZ7UvU?si=Zag1QW1gOyzFpPIA){:target="_blank"}      
+
+{% include video id="4GccAnZ7UvU?si=Zag1QW1gOyzFpPIA" provider="youtube" %}     
+
 ##### Patches    
 - `modres.from.a.chord.maxpat`    
 
