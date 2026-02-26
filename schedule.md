@@ -232,6 +232,11 @@ _In lieu of class during inclement weather, follow the video tutorial and comple
 
 {% include video id="4GccAnZ7UvU?si=Zag1QW1gOyzFpPIA" provider="youtube" %}     
 
+#### Video Tutorial      
+* [Completing Today’s Patch](https://youtu.be/4S8AK_M9oiY?si=SwynOTxOD5Hhcp1g){:target="_blank"}      
+
+{% include video id="4S8AK_M9oiY?si=SwynOTxOD5Hhcp1g" provider="youtube" %}     
+
 ##### Patches    
 - `modres.from.a.chord.maxpat`    
 
