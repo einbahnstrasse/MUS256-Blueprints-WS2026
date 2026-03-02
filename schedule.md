@@ -261,6 +261,9 @@ _In lieu of class during inclement weather, follow the video tutorial and comple
 #### Boiler (Downloads)     
 * [Introduction to Modalys](https://github.com/einbahnstrasse/modalys-intro-boiler){:target="_blank"}    
     
+#### Tutorials        
+* [What is Physical Modeling?](https://www.perfectcircuit.com/signal/what-is-physical-modeling){:target="_blank"}    
+
 #### Listening     
 * [Marco Stroppa, _Come Play with Me_, VI. “Strike”](https://youtu.be/DFWmCVs5GV0?si=_R6xaWXTud4jgvGJ){:target="_blank"}      
 
