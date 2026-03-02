@@ -253,6 +253,27 @@ _In lieu of class during inclement weather, follow the video tutorial and comple
   
 * * *  
 
+## Week 7: {{ site.week-07 }}
+### <span style="color: #fc3a52; font-size: 120%; ">{{ site.week-07-topic }}</span>
+
+#### Monday 3/2 — Introduction to Modalys                 
+
+#### Boiler (Downloads)     
+* [Introduction to Modalys](https://github.com/einbahnstrasse/modalys-intro-boiler){:target="_blank"}    
+    
+#### Listening     
+* [Marco Stroppa, _Come Play with Me_, VI. “Strike”](https://youtu.be/DFWmCVs5GV0?si=_R6xaWXTud4jgvGJ){:target="_blank"}      
+
+{% include video id="DFWmCVs5GV0?si=_R6xaWXTud4jgvGJ" provider="youtube" %}     
+
+##### Patches    
+- `01.mlys.string.force.maxpat`   
+
+##### Assignment    
+* Before Wednesday: Explore the Modalys for Max Examples. In Max, go to Extras -> Modalys for Max. Choose the patches within the categories "Complete Instruments" (blue), and "Other Exampels" (green). Be sure to click the "TV" icon to take the patch out of "presentation mode" and poke around to explore the logic of the patch. Imagine how you might use these on your own. Find 3 that you like, and we'll discuss them on Wednesday.   
+
+* * *  
+
 _More coming soon — check back frequently!_   
 
 * * *  
