@@ -275,6 +275,20 @@ _In lieu of class during inclement weather, follow the video tutorial and comple
 ##### Assignment    
 * Before Wednesday: Explore the Modalys for Max Examples. In Max, go to Extras -> Modalys for Max. Choose the patches within the categories "Complete Instruments" (blue), and "Other Exampels" (green). Be sure to click the "TV" icon to take the patch out of "presentation mode" and poke around to explore the logic of the patch. Imagine how you might use these on your own. Find 3 that you like, and we'll discuss them on Wednesday.   
 
+#### Wednesday 3/4 — Introduction to SPAT                 
+
+#### Boiler (Downloads)     
+* [Introduction to SPAT](https://github.com/einbahnstrasse/spat-boiler){:target="_blank"}    
+
+#### Tutorial Video        
+* [How Binaural Recording Tricks Your Brain](https://youtu.be/HucF_-u_Ju4?si=PJlj2zlq5rx4ZXcT){:target="_blank"}    
+
+{% include video id="HucF_-u_Ju4?si=PJlj2zlq5rx4ZXcT" provider="youtube" %}     
+   
+##### Patches    
+- `01.spat.boiler.maxpat`   
+- `03.sound.file.source.maxpat`   
+
 * * *  
 
 _More coming soon — check back frequently!_   
