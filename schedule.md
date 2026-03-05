@@ -285,9 +285,12 @@ _In lieu of class during inclement weather, follow the video tutorial and comple
 
 {% include video id="HucF_-u_Ju4?si=PJlj2zlq5rx4ZXcT" provider="youtube" %}     
    
+##### Tutorials
+* [Debugging in Max](https://einbahnstrasse.github.io/Debugging-in-Max/){:target="_blank"}     
+
 ##### Patches    
 - `01.spat.boiler.maxpat`   
-- `03.sound.file.source.maxpat`   
+- ~~`03.sound.file.source.maxpat`~~ _(next week)_    
 
 * * *  
 
