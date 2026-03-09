@@ -294,6 +294,21 @@ _In lieu of class during inclement weather, follow the video tutorial and comple
 
 * * *  
 
+## Week 7: {{ site.week-07 }}
+### <span style="color: #fc3a52; font-size: 120%; ">{{ site.week-07-topic }}</span>
+
+#### Monday 3/9 — Spat Coordinates                 
+
+##### Patches    
+- `02.very.clicky.maxpat`       
+- `03.sound.file.source.maxpat`      
+- `random.aed.coordinates.maxpat`       
+
+##### Assignment    
+* **For Wednesday**: find your completed `modres.from.a.chord.maxpat` patch. Make 3 instances of this patch, each one with its own chord. Send different audio signals into each instance, depending on how you cable things. Send the output of each of these 3 resonators into your `01.spat.boiler.maxpat` as spat input sources 1, 2, and 3. Give each its own spatial coordinates. Experiment with keeping 1 or 2 of the sounds **static** (not moving in `<spat.oper>`) versus giving them **motion** (using logic developed in our coordinates patches from today). Work to differentiate these 3 resonators so that they don't sound the same — distinguish them using the types of sounds you use as input, the chord harmonies/pitches you provide, and the spatial movement for each one. Play around with the reverb controls too — _have fun!_     
+
+* * *  
+
 _More coming soon — check back frequently!_   
 
 * * *  
