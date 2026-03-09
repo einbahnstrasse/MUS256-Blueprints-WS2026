@@ -294,7 +294,7 @@ _In lieu of class during inclement weather, follow the video tutorial and comple
 
 * * *  
 
-## Week 7: {{ site.week-07 }}
+## Week 8: {{ site.week-08 }}
 ### <span style="color: #fc3a52; font-size: 120%; ">{{ site.week-07-topic }}</span>
 
 #### Monday 3/9 — Spat Coordinates                 
