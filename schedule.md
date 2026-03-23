@@ -295,17 +295,38 @@ _In lieu of class during inclement weather, follow the video tutorial and comple
 * * *  
 
 ## Week 8: {{ site.week-08 }}
-### <span style="color: #fc3a52; font-size: 120%; ">{{ site.week-07-topic }}</span>
+### <span style="color: #fc3a52; font-size: 120%; ">{{ site.week-08-topic }}</span>
 
 #### Monday 3/9 — Spat Coordinates                 
 
 ##### Patches    
 - `02.very.clicky.maxpat`       
-- `03.sound.file.source.maxpat`      
-- `random.aed.coordinates.maxpat`       
+- ~~`03.sound.file.source.maxpat`~~   
+- ~~`random.aed.coordinates.maxpat`~~   
+- _The two patches crossed out above include material covered in our update to_ `02.very.clicky.maxpat` _as well as the assigned work due on Wednesday._     
 
 ##### Assignment    
 * **For Wednesday**: find your completed `modres.from.a.chord.maxpat` patch. Make 2 instances of this patch, each one with its own chord. Send different audio signals into each instance, depending on how you cable things. Send the output of each of these 2 resonators into your `01.spat.boiler.maxpat` as spat input sources 1 and 2. Create another source 3 using today's `03.sound.file.source.maxpat` patch. Give each of the 3 sources its own spatial coordinates. Experiment with keeping 1 or 2 of the sounds **static** (not moving in `<spat.oper>`) versus giving them **motion** (using logic developed in our coordinates patches from today). Work to differentiate these 3 sounds so that they don't sound the same — distinguish them using the types of sounds you use as input, the chord harmonies/pitches you provide to your resonators, and the spatial movement for each one. Play around with the reverb controls too — _have fun!_     
+
+* * *  
+
+## Week 9: {{ site.week-09 }}
+### <span style="color: #fc3a52; font-size: 120%; ">{{ site.week-09-topic }}</span>
+
+#### Monday 3/23 — Spat, Continued            
+
+##### Upcoming Quiz   
+_Expect a short, in-class, written pop-quiz over the Debugging in Max slides sometime in the next 1-3 class sessions. Review the slides for preparation._  
+
+##### Tutorials
+* [Modalys Mono-Two-Mass Object](https://support.ircam.fr/docs/Modalys/current/Objects/ObjectReference/object_mass_two_mono.html){:target="_blank"}     
+
+##### Patches    
+- `03.sound.file.source.maxpat`   
+- `mlys.reed.tube.v01.maxpat`    
+
+##### Assignment    
+* **For Wednesday**: Make a new version of the previous assignment that uses the following sound sources: (1) a sound file, (2) your Karplus-Strong patch, and (3) the Modalys string _or_ today's Modalys reed/tube patch. Be prepared to share your work in class. — _have fun!_     
 
 * * *  
 
