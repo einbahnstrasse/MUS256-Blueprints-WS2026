@@ -16,8 +16,9 @@ date: 2026-03-29
 
 **Due Saturday, April 4 at 11:59 PM.**  
 
-As a reminder, our deadlines are **firm**. Late submissions will incur penalties according to the Syllabus policy.  
-Consult the Syllabus if you have any questions about late work.   s
+As a reminder, our deadlines are **firm**. Late submissions will incur penalties according to the Syllabus policy.    
+
+Consult the Syllabus if you have any questions about late work.      
 
 ---
 
