@@ -56,9 +56,9 @@ By completing this assignment, students will be able to:
 
 ---
 
-## Reference Patch  
+## Boiler Patch  
 
-Below is the example patch you will study and adapt:
+Below is the example boiler patch you will study and adapt. Right-click to save this image or open in a new tab, where you can zoom in for detail:
 
 ![Single-source SPAT control patch (boiler)](/MUS256-Blueprints-WS2026/assets/images/polyphonic-spatial-motion-boiler.png){:target="_blank"}   
 
