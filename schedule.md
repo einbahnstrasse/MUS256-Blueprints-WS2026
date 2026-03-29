@@ -323,10 +323,23 @@ _Expect a short, in-class, written pop-quiz over the Debugging in Max slides som
 
 ##### Patches    
 - `03.sound.file.source.maxpat`   
-- `mlys.reed.tube.v01.maxpat`    
+- ~~`mlys.reed.tube.v01.maxpat`~~ _(postponed)_  
 
 ##### Assignment    
 * **For Wednesday**: Make a new version of the previous assignment that uses the following sound sources: (1) a sound file, (2) your Karplus-Strong patch, and (3) the Modalys string _or_ today's Modalys reed/tube patch. Be prepared to share your work in class. — _have fun!_     
+
+* * *  
+
+## Week 10: {{ site.week-10 }}
+### <span style="color: #fc3a52; font-size: 120%; ">{{ site.week-10-topic }}</span>
+
+#### Monday 3/30 — Asynchronous, Spat    
+
+##### Assignment (Due Saturday night as usual)  
+* [Polyphonic spat~ Spatial Source Movement](./assignments/polyphonic-spatial-motion.html){:target="_blank"}     
+
+#### Wednesday 4/1 — Guest Presentation (In Person)     
+_Jason Thorpe Buchannan, guest composer_        
 
 * * *  
 
