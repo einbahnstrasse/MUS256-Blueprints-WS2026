@@ -336,7 +336,7 @@ _Expect a short, in-class, written pop-quiz over the Debugging in Max slides som
 #### Monday 3/30 — Asynchronous, Spat    
 
 ##### Assignment (Due Saturday night as usual)  
-* [Polyphonic spat~ Spatial Source Movement](./assignments/polyphonic-spatial-motion.html){:target="_blank"}     
+* [Polyphonic spat~ Spatial Source Movement](/MUS256-Blueprints-WS2026/assignments/polyphonic-spatial-motion){:target="_blank"}     
 
 #### Wednesday 4/1 — Guest Presentation (In Person)     
 _Jason Thorpe Buchannan, guest composer_        

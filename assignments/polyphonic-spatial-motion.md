@@ -60,7 +60,7 @@ By completing this assignment, students will be able to:
 
 Below is the example patch you will study and adapt:
 
-![Single-source SPAT control patch (boiler)](assets/images/polyphonic-spatial-motion-boiler.png){:target="_blank"}   
+![Single-source SPAT control patch (boiler)](/MUS256-Blueprints-WS2026/assets/images/polyphonic-spatial-motion-boiler.png){:target="_blank"}   
 
 ---
 
