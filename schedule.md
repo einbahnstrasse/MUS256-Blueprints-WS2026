@@ -343,6 +343,15 @@ _Jason Thorpe Buchannan, guest composer_
 
 * * *  
 
+## Week 11: {{ site.week-11 }}
+### <span style="color: #fc3a52; font-size: 120%; ">{{ site.week-11-topic }}</span>
+
+#### Monday 4/6 — Reed, Tube Model      
+##### Patches    
+- `mlys.reed.tube.v01.maxpat`      
+
+* * *  
+
 _More coming soon — check back frequently!_   
 
 * * *  
