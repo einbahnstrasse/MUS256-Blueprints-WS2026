@@ -352,6 +352,15 @@ _Jason Thorpe Buchannan, guest composer_
 
 * * *  
 
+## Week 12: {{ site.week-12 }}
+### <span style="color: #fc3a52; font-size: 120%; ">{{ site.week-12-topic }}</span>
+
+#### Monday 4/13 — Presentation on Concert Patches        
+
+_To prepare for Wednesday, find the PDF called "Finite Elements" on your computer; it's in the Modalys folder located in your Applications folder. Read the first few pages to get a sense of what finite elements are. Then, launch ModaLisp on your computer to be sure it works. We'll be using this along with Max on Wednesday for our last class._   
+
+#### Monday 4/15 — Modalys 3D          
+
 _More coming soon — check back frequently!_   
 
 * * *  
