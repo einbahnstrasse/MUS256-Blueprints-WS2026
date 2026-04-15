@@ -359,7 +359,16 @@ _Jason Thorpe Buchannan, guest composer_
 
 _To prepare for Wednesday, find the PDF called "Finite Elements" on your computer; it's in the Modalys folder located in your Applications folder. Read the first few pages to get a sense of what finite elements are. Then, launch ModaLisp on your computer to be sure it works. We'll be using this along with Max on Wednesday for our last class._   
 
-#### Monday 4/15 — Modalys 3D          
+#### Wednesday 4/15 — Modalys 3D     
+
+##### Boiler  
+* [Modalys 3D Boiler](https://github.com/einbahnstrasse/modalys-3D-boiler){:target="_blank"}     
+
+##### Patches    
+- `wineGlass-v02.lisp`      
+- `import.3D.object.maxpat`      
+
+* * *  
 
 _More coming soon — check back frequently!_   
 
